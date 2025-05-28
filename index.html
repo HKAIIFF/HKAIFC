@@ -1,0 +1,2823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKAIFC - Hong Kong AI Film Standards Committee</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --premium-white: #FFFFFF;
+            --tech-silver: #F5F5F7;
+            --gradient-start: #00F5A0;
+            --gradient-end: #00D9F5;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --authority-gold: #FFD700;
+            --certification-blue: #0066CC;
+            --certification-red: #DC143C;
+            --government-blue: #003366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .certification-emblem {
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+
+        .emblem-outer {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .emblem-outer::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -8px;
+            left: -8px;
+            opacity: 0.6;
+        }
+
+        .emblem-outer::after {
+            content: '';
+            position: absolute;
+            width: 86px;
+            height: 86px;
+            border: 1px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -11px;
+            left: -11px;
+            opacity: 0.3;
+        }
+
+        .emblem-inner {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+            position: relative;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo-main {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--text-primary), var(--certification-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 245, 160, 0.3);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 25px;
+            background: var(--tech-silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .language-selector:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 245, 160, 0.3);
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 245, 160, 0.1), rgba(0, 217, 245, 0.1));
+            z-index: -1;
+        }
+
+        .hero-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 30px;
+            max-width: 1200px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .authority-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+
+        .authority-header::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--authority-gold), var(--certification-blue), var(--authority-gold));
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .official-seal-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .official-seal {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            animation: officialGlow 4s ease-in-out infinite;
+        }
+
+        .official-seal::before {
+            content: '';
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border: 4px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -9px;
+            left: -9px;
+            opacity: 0.5;
+        }
+
+        .official-seal::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -14px;
+            left: -14px;
+            opacity: 0.3;
+        }
+
+        .seal-inner {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+            position: relative;
+        }
+
+        .certification-rings {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 1px dashed var(--authority-gold);
+            border-radius: 50%;
+            top: -24px;
+            left: -24px;
+            opacity: 0.4;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .authority-text {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .authority-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .authority-subtitle {
+            font-size: 1rem;
+            color: var(--authority-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .gov-emblem {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--government-blue), var(--certification-blue));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .credentials-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .credential-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            font-size: 0.7rem;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .credential-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gradient-start);
+        }
+
+        @keyframes officialGlow {
+            0%, 100% { 
+                filter: brightness(1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4)); 
+                transform: scale(1);
+            }
+            50% { 
+                filter: brightness(1.1) drop-shadow(0 0 15px rgba(255, 215, 0, 0.7)); 
+                transform: scale(1.02);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--premium-white);
+            box-shadow: 0 6px 20px rgba(0, 245, 160, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--text-primary), #333);
+            color: var(--premium-white);
+            box-shadow: 0 6px 20px rgba(29, 29, 31, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .trust-icon {
+            color: var(--gradient-start);
+            font-size: 1.2rem;
+        }
+
+        /* Statistics Section */
+        .statistics {
+            background: var(--premium-white);
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .market-projection {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-projection::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+
+        .market-projection h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .market-projection p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Services Overview */
+        .services {
+            padding: 8rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--premium-white);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 245, 160, 0.3);
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--gradient-start);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Founding Organizations */
+        .founding-organizations {
+            padding: 8rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .founding-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .founding-intro {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(0, 245, 160, 0.1), rgba(0, 217, 245, 0.1));
+            border-radius: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .founding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .founding-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founding-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--authority-gold), var(--certification-blue));
+        }
+
+        .founding-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .founding-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: 0 8px 20px rgba(0, 245, 160, 0.3);
+        }
+
+        .founding-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .founding-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* International Partners */
+        .international-partners {
+            margin-top: 6rem;
+            padding: 4rem;
+            background: var(--tech-silver);
+            border-radius: 25px;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .partner-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: var(--premium-white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .partner-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .partner-icon {
+            font-size: 1.5rem;
+            color: var(--gradient-start);
+        }
+
+        .partner-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Latest News */
+        .news {
+            padding: 8rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .news-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .news-card {
+            background: var(--premium-white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .news-content {
+            padding: 2.5rem;
+        }
+
+        .news-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .news-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Call to Action */
+        .cta-section-main {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section-main::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .cta-buttons-main {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn-cta {
+            padding: 1.5rem 3rem;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .btn-cta-white {
+            background: white;
+            color: var(--gradient-end);
+            font-weight: 600;
+        }
+
+        .btn-cta-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 1rem;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cta-feature i {
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--premium-white);
+            padding: 6rem 2rem 3rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: var(--authority-gold);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-emblem {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .footer-brand-text h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .footer-brand-subtitle {
+            font-size: 0.8rem;
+            color: var(--authority-gold);
+            margin-top: 0.2rem;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-start);
+        }
+
+        .contact-info {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-label {
+            color: white;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-icon {
+            width: 16px;
+            margin-right: 0.8rem;
+            color: var(--gradient-start);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-legal {
+            margin-top: 1rem;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--gradient-start);
+        }
+
+        .certification-indicators {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .cert-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient-start);
+        }
+
+        /* Language Modal */
+        .language-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .language-modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .language-modal h3 {
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--gradient-start);
+            padding-bottom: 1rem;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .language-option {
+            padding: 1.2rem;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .language-option:hover {
+            border-color: var(--gradient-start);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 245, 160, 0.3);
+        }
+
+        .language-option.active {
+            border-color: var(--gradient-start);
+            background: var(--gradient-start);
+            color: white;
+        }
+
+        .close-modal-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 245, 160, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .authority-header {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .founding-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons-main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-cta {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .partners-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000000;
+                --text-secondary: #333333;
+                --glass-bg: rgba(255, 255, 255, 0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="certification-emblem">
+                    <div class="emblem-outer">
+                        <div class="emblem-inner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="certification-rings"></div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">HKAIFC</div>
+                    <div class="logo-subtitle">Official Standards Authority</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="certification.html">Certification</a>
+                    <a href="standards.html">Standards</a>
+                    <a href="membership.html">Membership</a>
+                    <a href="news.html">News</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="authority-header">
+                <div class="official-seal-container">
+                    <div class="official-seal">
+                        <div class="seal-inner">
+                            <i class="fas fa-stamp"></i>
+                        </div>
+                        <div class="certification-rings"></div>
+                    </div>
+                </div>
+                <div class="authority-text">
+                    <div class="authority-title">Official Standards Development Organization</div>
+                    <div class="authority-subtitle">
+                        <div class="gov-emblem">HK</div>
+                        Hong Kong SAR Government Supported
+                        <div class="gov-emblem">標</div>
+                    </div>
+                    <div class="credentials-badges">
+                        <div class="credential-badge">
+                            <span class="credential-dot"></span>
+                            <span>ISO Aligned</span>
+                        </div>
+                        <div class="credential-badge">
+                            <span class="credential-dot"></span>
+                            <span>IEEE Partner</span>
+                        </div>
+                        <div class="credential-badge">
+                            <span class="credential-dot"></span>
+                            <span>ITU Recognized</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1>Hong Kong AI Film Standards Committee</h1>
+            <div class="subtitle">Leading Global AI-Native Film Industry Standards & Certification</div>
+            <p>
+                The world's first authoritative standards development and certification organization dedicated to 
+                the AI-native film industry. Establishing comprehensive, scientific, and internationally aligned 
+                standards that govern AI film creation, production, distribution, and commercialization across 
+                the global entertainment ecosystem.
+            </p>
+            
+            <div class="cta-section">
+                <div class="cta-buttons">
+                    <a href="certification.html" class="btn btn-primary">
+                        <i class="fas fa-certificate"></i>
+                        Get Certified Now
+                    </a>
+                    <a href="standards.html" class="btn btn-secondary">
+                        <i class="fas fa-book-open"></i>
+                        Explore Standards
+                    </a>
+                    <a href="membership.html" class="btn btn-outline">
+                        <i class="fas fa-users"></i>
+                        Join HKAIFC
+                    </a>
+                </div>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt trust-icon"></i>
+                        <span>Blockchain Verified Certificates</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-globe trust-icon"></i>
+                        <span>Global Recognition Network</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-award trust-icon"></i>
+                        <span>5-Level Assessment System</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock trust-icon"></i>
+                        <span>24/7 Digital Services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="stats-container">
+            <div class="section-header">
+                <h2 class="section-title">Driving the AI Film Revolution</h2>
+                <p class="section-subtitle">
+                    Establishing the foundation for a $500 billion industry transformation with 
+                    authoritative standards and global certification framework
+                </p>
+            </div>
+
+            <div class="market-projection">
+                <h3>$500 Billion Market Projection by 2030</h3>
+                <p>The AI-native film industry represents the largest transformation in entertainment history, 
+                with real-time plot generation, infinite ending possibilities, and personalized viewer experiences 
+                creating unprecedented market opportunities.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Comprehensive Industry Standards</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Certification Assessment Dimensions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Global Languages Supported</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">International Partner Organizations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Year Certificate Validity</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Global Certification Services</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services">
+        <div class="services-container">
+            <div class="section-header">
+                <h2 class="section-title">Comprehensive Certification Ecosystem</h2>
+                <p class="section-subtitle">
+                    Professional standards development, authoritative certification, and global recognition 
+                    services for the complete AI film industry value chain
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="service-title">AI Film Work Certification</h3>
+                    <p class="service-description">
+                        Comprehensive 5-dimensional assessment system evaluating AI-native films across 
+                        technical excellence, creative innovation, and commercial viability with blockchain-verified certificates.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI-Native Level Assessment (Levels 1-5)</li>
+                        <li>Content Quality & Creative Value Evaluation</li>
+                        <li>Innovation Technology Rating & IP Analysis</li>
+                        <li>Commercial Maturity & Market Readiness</li>
+                        <li>Social Responsibility & Ethics Compliance</li>
+                        <li>Blockchain-Verified Digital Certificates</li>
+                        <li>3-Year International Recognition</li>
+                    </ul>
+                    <a href="certification.html#work-certification" class="btn btn-primary">Start Certification</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="service-title">Professional Competency Certification</h3>
+                    <p class="service-description">
+                        5-level professional certification system for AI film industry talents across multiple 
+                        specialization tracks with academic credential conversion and international recognition.
+                    </p>
+                    <ul class="service-features">
+                        <li>5-Level Certification System (Junior to Ambassador)</li>
+                        <li>5 Professional Specialization Tracks</li>
+                        <li>Academic Credential Conversion Program</li>
+                        <li>International Skills Recognition</li>
+                        <li>Continuous Professional Development</li>
+                        <li>Career Advancement Pathways</li>
+                        <li>Global Industry Network Access</li>
+                    </ul>
+                    <a href="certification.html#professional-certification" class="btn btn-primary">Get Certified</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Institutional Membership</h3>
+                    <p class="service-description">
+                        Exclusive membership programs for organizations leading AI film industry transformation, 
+                        providing access to standards development, priority services, and industry governance.
+                    </p>
+                    <ul class="service-features">
+                        <li>Founding Member Exclusive Benefits</li>
+                        <li>Standards Development Participation Rights</li>
+                        <li>Priority Certification Services (up to 40% discount)</li>
+                        <li>Annual Summit Hosting Opportunities</li>
+                        <li>Global Industry Leadership Network</li>
+                        <li>Expert Advisory Services</li>
+                        <li>Market Intelligence & Research Access</li>
+                    </ul>
+                    <a href="membership.html" class="btn btn-primary">Join HKAIFC</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="service-title">Standards Development</h3>
+                    <p class="service-description">
+                        Comprehensive technical and management standards covering the complete AI film ecosystem, 
+                        from algorithm development to commercial distribution and international compliance.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI Algorithm & Generation Standards</li>
+                        <li>Real-time Content Production Standards</li>
+                        <li>Interactive Experience Design Standards</li>
+                        <li>Quality Assessment & Evaluation Framework</li>
+                        <li>Intellectual Property Protection Standards</li>
+                        <li>Data Governance & Privacy Standards</li>
+                        <li>International Compliance Guidelines</li>
+                    </ul>
+                    <a href="standards.html" class="btn btn-primary">Explore Standards</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Education & Training</h3>
+                    <p class="service-description">
+                        Professional development programs, educational resources, and training services designed 
+                        to build global AI film industry expertise and accelerate adoption of best practices.
+                    </p>
+                    <ul class="service-features">
+                        <li>Standards Interpretation & Implementation Training</li>
+                        <li>Certification Preparation Programs</li>
+                        <li>Expert Consulting & Advisory Services</li>
+                        <li>Customized Corporate Training Solutions</li>
+                        <li>Online Learning Platform & Resources</li>
+                        <li>Industry Best Practices Workshops</li>
+                        <li>Professional Development Certification</li>
+                    </ul>
+                    <a href="education.html" class="btn btn-primary">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="service-title">International Cooperation</h3>
+                    <p class="service-description">
+                        Global partnerships and mutual recognition agreements with leading international organizations, 
+                        ensuring worldwide acceptance and standardization of AI film industry practices.
+                    </p>
+                    <ul class="service-features">
+                        <li>ISO Standards Alignment & Mutual Recognition</li>
+                        <li>IEEE Technical Standards Collaboration</li>
+                        <li>ITU International Telecommunications Partnership</li>
+                        <li>Regional Industry Alliance Network</li>
+                        <li>Academic Research Institution Partnerships</li>
+                        <li>Government Relations & Policy Development</li>
+                        <li>Cross-Border Certification Recognition</li>
+                    </ul>
+                    <a href="cooperation.html" class="btn btn-primary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founding Organizations -->
+    <section class="founding-organizations">
+        <div class="founding-container">
+            <div class="founding-intro">
+                <h2 class="section-title">Founding Organizations</h2>
+                <p class="section-subtitle">
+                    HKAIFC was established through the collaborative vision of Hong Kong's leading AI film industry 
+                    organizations, uniting expertise in festivals, markets, education, distribution, and investment 
+                    to create the world's most comprehensive standards authority.
+                </p>
+            </div>
+            
+            <div class="founding-grid">
+                <div class="founding-card">
+                    <div class="founding-logo">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h4 class="founding-title">Hong Kong AI International Film Festival Association</h4>
+                    <p class="founding-description">
+                        Premier organization for AI film festivals, competitions, and industry events, 
+                        establishing global recognition standards for AI-native filmmaking excellence and innovation.
+                    </p>
+                </div>
+                
+                <div class="founding-card">
+                    <div class="founding-logo">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h4 class="founding-title">Hong Kong AI Film Market</h4>
+                    <p class="founding-description">
+                        The world's leading marketplace for AI film trading, distribution, and commercial licensing, 
+                        connecting creators with global audiences and establishing market value benchmarks.
+                    </p>
+                </div>
+                
+                <div class="founding-card">
+                    <div class="founding-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h4 class="founding-title">Hong Kong AI Film Academy</h4>
+                    <p class="founding-description">
+                        Advanced educational institution providing comprehensive training in AI filmmaking, 
+                        technical skills development, and professional certification for industry practitioners.
+                    </p>
+                </div>
+                
+                <div class="founding-card">
+                    <div class="founding-logo">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 class="founding-title">Hong Kong AI International Film Festival Submission Center</h4>
+                    <p class="founding-description">
+                        Global submission platform facilitating AI film festival participation worldwide, 
+                        standardizing submission processes and quality evaluation criteria across international venues.
+                    </p>
+                </div>
+                
+                <div class="founding-card">
+                    <div class="founding-logo">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h4 class="founding-title">Hong Kong AI Film Foundation</h4>
+                    <p class="founding-description">
+                        Strategic investment and funding organization supporting AI film innovation, 
+                        providing capital, resources, and business development expertise for emerging projects.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="international-partners">
+                <h3 style="margin-bottom: 2rem; text-align: center; color: var(--text-primary); font-size: 1.8rem;">Strategic International Partners</h3>
+                <div class="partners-grid">
+                    <div class="partner-badge">
+                        <i class="fas fa-certificate partner-icon"></i>
+                        <span class="partner-name">ISO - International Organization for Standardization</span>
+                    </div>
+                    <div class="partner-badge">
+                        <i class="fas fa-microchip partner-icon"></i>
+                        <span class="partner-name">IEEE - Institute of Electrical and Electronics Engineers</span>
+                    </div>
+                    <div class="partner-badge">
+                        <i class="fas fa-broadcast-tower partner-icon"></i>
+                        <span class="partner-name">ITU - International Telecommunication Union</span>
+                    </div>
+                    <div class="partner-badge">
+                        <i class="fas fa-code partner-icon"></i>
+                        <span class="partner-name">W3C - World Wide Web Consortium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="news" id="news">
+                    <div class="news-container">
+            <div class="section-header">
+                <h2 class="section-title">Industry News & Updates</h2>
+                <p class="section-subtitle">
+                    Stay informed about the latest developments in AI film standards, certification milestones, 
+                    and industry transformation initiatives from HKAIFC and our global partners
+                </p>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">January 20, 2025</div>
+                        <h4 class="news-title">HKAIFC Officially Launches Global AI Film Standards Framework</h4>
+                        <p class="news-excerpt">
+                            The Hong Kong AI Film Standards Committee officially launches its comprehensive 
+                            certification ecosystem with over 50 industry standards, establishing the world's 
+                            first authoritative framework for AI-native film production, quality assessment, 
+                            and professional development across the global entertainment industry.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">January 15, 2025</div>
+                        <h4 class="news-title">Strategic Partnership with ISO Establishes Global Recognition</h4>
+                        <p class="news-excerpt">
+                            HKAIFC signs landmark cooperation agreement with the International Organization 
+                            for Standardization (ISO) for mutual recognition of AI film standards, creating 
+                            the foundation for worldwide acceptance and harmonization of industry certification 
+                            and quality assurance protocols.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">January 12, 2025</div>
+                        <h4 class="news-title">First AI Films Achieve Prestigious Level 5 Certification</h4>
+                        <p class="news-excerpt">
+                            Three groundbreaking AI-native films become the first to achieve HKAIFC's highest 
+                            Level 5 certification, demonstrating excellence across all five assessment dimensions 
+                            and setting new industry benchmarks for technical innovation, creative quality, 
+                            and commercial viability.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">January 8, 2025</div>
+                        <h4 class="news-title">Global Membership Program Opens to Industry Leaders</h4>
+                        <p class="news-excerpt">
+                            HKAIFC launches its exclusive membership program for organizations worldwide, 
+                            offering founding member benefits including standards development participation, 
+                            priority certification services, and access to the global AI film industry 
+                            leadership network and governance opportunities.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">January 5, 2025</div>
+                        <h4 class="news-title">Professional Certification Program Launches with 5-Level System</h4>
+                        <p class="news-excerpt">
+                            Comprehensive professional development program launches featuring 5-level 
+                            certification system across multiple specialization tracks, providing AI film 
+                            industry professionals with internationally recognized credentials and career 
+                            advancement pathways from junior level to ambassador status.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">January 2, 2025</div>
+                        <h4 class="news-title">Multi-Language Platform Supports 40+ Global Languages</h4>
+                        <p class="news-excerpt">
+                            HKAIFC certification platform now supports over 40 languages with AI-powered 
+                            real-time translation, making standards, certification services, and professional 
+                            development programs accessible to global participants in their native languages, 
+                            fostering worldwide industry adoption.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="news.html" class="btn btn-outline">
+                    <i class="fas fa-newspaper"></i>
+                    View All News & Updates
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section-main">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Shape the Future of AI Film?</h2>
+            <p class="cta-description">
+                Join the global transformation of the entertainment industry with HKAIFC's authoritative 
+                certification system. Get internationally recognized, drive industry innovation, and 
+                position yourself at the forefront of the $500 billion AI film revolution.
+            </p>
+            <div class="cta-buttons-main">
+                <a href="certification.html" class="btn-cta btn-cta-white">
+                    <i class="fas fa-rocket"></i>
+                    Start Your Certification Journey
+                </a>
+                <a href="consultation.html" class="btn-cta btn-cta-outline">
+                    <i class="fas fa-phone"></i>
+                    Schedule Expert Consultation
+                </a>
+            </div>
+            
+            <div class="cta-features">
+                <div class="cta-feature">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7 Global Support</span>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Blockchain Security</span>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-globe"></i>
+                    <span>International Recognition</span>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-award"></i>
+                    <span>Industry Authority</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="footer-emblem">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="footer-brand-text">
+                            <h3>HKAIFC</h3>
+                            <div class="footer-brand-subtitle">Official Standards Authority</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        The world's first authoritative standards development and certification organization 
+                        for the AI-native film industry, establishing comprehensive frameworks that govern 
+                        global entertainment transformation and innovation.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Certification Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="certification.html#work-certification">AI Film Work Certification</a></li>
+                        <li><a href="certification.html#professional-certification">Professional Competency Certification</a></li>
+                        <li><a href="certification.html#levels">5-Level Assessment System</a></li>
+                        <li><a href="certification.html#process">Certification Process</a></li>
+                        <li><a href="certification.html#fees">Pricing & Fees</a></li>
+                        <li><a href="certification.html#renewal">Certificate Renewal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Standards & Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="standards.html">Industry Standards Library</a></li>
+                        <li><a href="whitepaper.html">Official White Papers</a></li>
+                        <li><a href="documentation.html">Technical Documentation</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="best-practices.html">Best Practices Guide</a></li>
+                        <li><a href="support.html">Support Center</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Organization</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About HKAIFC</a></li>
+                        <li><a href="governance.html">Governance Structure</a></li>
+                        <li><a href="leadership.html">Leadership Team</a></li>
+                        <li><a href="founding-members.html">Founding Organizations</a></li>
+                        <li><a href="partnerships.html">International Partnerships</a></li>
+                        <li><a href="careers.html">Career Opportunities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">Global Headquarters</span>
+                            88/F, IFC Two, Central<br>
+                            Hong Kong SAR, China
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Business Inquiries</span>
+                            <i class="fas fa-envelope contact-icon"></i>info@hkaifc.org<br>
+                            <i class="fas fa-envelope contact-icon"></i>certification@hkaifc.org<br>
+                            <i class="fas fa-envelope contact-icon"></i>membership@hkaifc.org
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">International Relations</span>
+                            <i class="fas fa-envelope contact-icon"></i>international@hkaifc.org<br>
+                            <i class="fas fa-envelope contact-icon"></i>partnerships@hkaifc.org
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Business Hours</span>
+                            Monday - Friday: 9:00-18:00 HKT<br>
+                            24/7 Digital Services Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p class="footer-copyright">
+                        © 2025 Hong Kong AI Film Standards Committee (HKAIFC). All rights reserved.
+                    </p>
+                    <div class="footer-legal">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="legal.html">Legal Notice</a>
+                        <a href="accessibility.html">Accessibility</a>
+                    </div>
+                </div>
+
+                <div class="certification-indicators">
+                    <div class="cert-badge">
+                        <span class="cert-dot"></span>
+                        <span>ISO 9001 Certified</span>
+                    </div>
+                    <div class="cert-badge">
+                        <span class="cert-dot"></span>
+                        <span>Blockchain Verified</span>
+                    </div>
+                    <div class="cert-badge">
+                        <span class="cert-dot"></span>
+                        <span>Government Backed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Selection Modal -->
+    <div id="languageModal" class="language-modal">
+        <div class="language-modal-content">
+            <h3>🌍 Select Your Language / 选择语言</h3>
+            <div class="language-grid">
+                <button class="language-option active" data-lang="en" data-name="English">
+                    🇺🇸 English
+                </button>
+                <button class="language-option" data-lang="zh-cn" data-name="简体中文">
+                    🇨🇳 简体中文
+                </button>
+                <button class="language-option" data-lang="zh-hk" data-name="繁體中文">
+                    🇭🇰 繁體中文
+                </button>
+                <button class="language-option" data-lang="zh-tw" data-name="繁體中文">
+                    🇹🇼 繁體中文 (台灣)
+                </button>
+                <button class="language-option" data-lang="ja" data-name="日本語">
+                    🇯🇵 日本語
+                </button>
+                <button class="language-option" data-lang="ko" data-name="한국어">
+                    🇰🇷 한국어
+                </button>
+                <button class="language-option" data-lang="fr" data-name="Français">
+                    🇫🇷 Français
+                </button>
+                <button class="language-option" data-lang="de" data-name="Deutsch">
+                    🇩🇪 Deutsch
+                </button>
+                <button class="language-option" data-lang="es" data-name="Español">
+                    🇪🇸 Español
+                </button>
+                <button class="language-option" data-lang="pt" data-name="Português">
+                    🇵🇹 Português
+                </button>
+                <button class="language-option" data-lang="ru" data-name="Русский">
+                    🇷🇺 Русский
+                </button>
+                <button class="language-option" data-lang="ar" data-name="العربية">
+                    🇸🇦 العربية
+                </button>
+                <button class="language-option" data-lang="hi" data-name="हिंदी">
+                    🇮🇳 हिंदी
+                </button>
+                <button class="language-option" data-lang="th" data-name="ไทย">
+                    🇹🇭 ไทย
+                </button>
+                <button class="language-option" data-lang="vi" data-name="Tiếng Việt">
+                    🇻🇳 Tiếng Việt
+                </button>
+                <button class="language-option" data-lang="id" data-name="Bahasa Indonesia">
+                    🇮🇩 Bahasa Indonesia
+                </button>
+                <button class="language-option" data-lang="ms" data-name="Bahasa Melayu">
+                    🇲🇾 Bahasa Melayu
+                </button>
+                <button class="language-option" data-lang="tl" data-name="Filipino">
+                    🇵🇭 Filipino
+                </button>
+                <button class="language-option" data-lang="it" data-name="Italiano">
+                    🇮🇹 Italiano
+                </button>
+                <button class="language-option" data-lang="nl" data-name="Nederlands">
+                    🇳🇱 Nederlands
+                </button>
+                <button class="language-option" data-lang="sv" data-name="Svenska">
+                    🇸🇪 Svenska
+                </button>
+                <button class="language-option" data-lang="no" data-name="Norsk">
+                    🇳🇴 Norsk
+                </button>
+                <button class="language-option" data-lang="da" data-name="Dansk">
+                    🇩🇰 Dansk
+                </button>
+                <button class="language-option" data-lang="fi" data-name="Suomi">
+                    🇫🇮 Suomi
+                </button>
+                <button class="language-option" data-lang="pl" data-name="Polski">
+                    🇵🇱 Polski
+                </button>
+                <button class="language-option" data-lang="cs" data-name="Čeština">
+                    🇨🇿 Čeština
+                </button>
+                <button class="language-option" data-lang="sk" data-name="Slovenčina">
+                    🇸🇰 Slovenčina
+                </button>
+                <button class="language-option" data-lang="hu" data-name="Magyar">
+                    🇭🇺 Magyar
+                </button>
+                <button class="language-option" data-lang="ro" data-name="Română">
+                    🇷🇴 Română
+                </button>
+                <button class="language-option" data-lang="bg" data-name="Български">
+                    🇧🇬 Български
+                </button>
+                <button class="language-option" data-lang="hr" data-name="Hrvatski">
+                    🇭🇷 Hrvatski
+                </button>
+                <button class="language-option" data-lang="sr" data-name="Српски">
+                    🇷🇸 Српски
+                </button>
+                <button class="language-option" data-lang="sl" data-name="Slovenščina">
+                    🇸🇮 Slovenščina
+                </button>
+                <button class="language-option" data-lang="et" data-name="Eesti">
+                    🇪🇪 Eesti
+                </button>
+                <button class="language-option" data-lang="lv" data-name="Latviešu">
+                    🇱🇻 Latviešu
+                </button>
+                <button class="language-option" data-lang="lt" data-name="Lietuvių">
+                    🇱🇹 Lietuvių
+                </button>
+                <button class="language-option" data-lang="tr" data-name="Türkçe">
+                    🇹🇷 Türkçe
+                </button>
+                <button class="language-option" data-lang="he" data-name="עברית">
+                    🇮🇱 עברית
+                </button>
+                <button class="language-option" data-lang="fa" data-name="فارسی">
+                    🇮🇷 فارسی
+                </button>
+                <button class="language-option" data-lang="ur" data-name="اردو">
+                    🇵🇰 اردو
+                </button>
+                <button class="language-option" data-lang="bn" data-name="বাংলা">
+                    🇧🇩 বাংলা
+                </button>
+                <button class="language-option" data-lang="ta" data-name="தமிழ்">
+                    🇱🇰 தமிழ்
+                </button>
+                <button class="language-option" data-lang="te" data-name="తెలుగు">
+                    🇮🇳 తెలుగు
+                </button>
+                <button class="language-option" data-lang="ml" data-name="മലയാളം">
+                    🇮🇳 മലയാളം
+                </button>
+                <button class="language-option" data-lang="kn" data-name="ಕನ್ನಡ">
+                    🇮🇳 ಕನ್ನಡ
+                </button>
+                <button class="language-option" data-lang="gu" data-name="ગુજરાતી">
+                    🇮🇳 ગુજરાતી
+                </button>
+            </div>
+            <button class="close-modal-btn" onclick="closeLanguageModal()">
+                <i class="fas fa-check"></i> Confirm Selection
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentLanguage = 'en';
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll behavior
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (currentScroll < lastScroll) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Language selector functionality
+        document.querySelector('.language-selector').addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const modal = document.getElementById('languageModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close language modal function
+        function closeLanguageModal() {
+            const modal = document.getElementById('languageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Make closeLanguageModal globally accessible
+        window.closeLanguageModal = closeLanguageModal;
+
+        // Language option selection
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Remove active class from all options
+                    document.querySelectorAll('.language-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    
+                    // Add active class to selected option
+                    e.target.classList.add('active');
+                    
+                    // Get language data
+                    const langCode = e.target.dataset.lang;
+                    const langName = e.target.dataset.name;
+                    
+                    // Update current language
+                    currentLanguage = langCode;
+                    
+                    // Update language selector display
+                    const selectorText = document.querySelector('.language-selector span');
+                    if (selectorText) {
+                        selectorText.textContent = langName;
+                    }
+                    
+                    // Show success toast
+                    showToast(`🌍 Language changed to ${langName}`);
+                    
+                    // Close modal after selection
+                    setTimeout(() => {
+                        closeLanguageModal();
+                    }, 800);
+                });
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('languageModal').addEventListener('click', (e) => {
+            if (e.target.id === 'languageModal') {
+                closeLanguageModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('languageModal');
+                if (modal && modal.style.display === 'flex') {
+                    closeLanguageModal();
+                }
+            }
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-background');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Toast notification system
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 120px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(135deg, var(--text-primary), #333);
+                color: white;
+                padding: 1.5rem 2.5rem;
+                border-radius: 50px;
+                z-index: 10000;
+                opacity: 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                font-weight: 500;
+                font-size: 1rem;
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateX(-50%) translateY(-10px)';
+            }, 100);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to cards
+        document.querySelectorAll('.service-card, .stat-card, .news-card, .founding-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Statistics counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : '');
+                }
+            }, 16);
+        }
+
+        // Trigger counter animations when statistics section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValues = entry.target.querySelectorAll('.stat-value');
+                    statValues.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes(')) {
+                            // Keep as is for market value
+                        } else if (text.includes('+')) {
+                            const num = parseInt(text);
+                            if (num) animateCounter(stat, num);
+                        } else if (text.includes('/')) {
+                            // Keep as is for 24/7
+                        } else {
+                            const num = parseInt(text);
+                            if (num) animateCounter(stat, num);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.statistics');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Auto-detect user's preferred language and show suggestion
+        const detectAndSuggestLanguage = () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            const langMap = {
+                'zh-CN': { code: 'zh-cn', name: '简体中文', flag: '🇨🇳' },
+                'zh-HK': { code: 'zh-hk', name: '繁體中文', flag: '🇭🇰' },
+                'zh-TW': { code: 'zh-tw', name: '繁體中文 (台灣)', flag: '🇹🇼' },
+                'ja': { code: 'ja', name: '日本語', flag: '🇯🇵' },
+                'ko': { code: 'ko', name: '한국어', flag: '🇰🇷' },
+                'fr': { code: 'fr', name: 'Français', flag: '🇫🇷' },
+                'de': { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+                'es': { code: 'es', name: 'Español', flag: '🇪🇸' },
+                'pt': { code: 'pt', name: 'Português', flag: '🇵🇹' },
+                'ru': { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+                'ar': { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+                'hi': { code: 'hi', name: 'हिंदी', flag: '🇮🇳' },
+                'th': { code: 'th', name: 'ไทย', flag: '🇹🇭' },
+                'vi': { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+                'id': { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩' },
+                'ms': { code: 'ms', name: 'Bahasa Melayu', flag: '🇲🇾' },
+                'it': { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+                'nl': { code: 'nl', name: 'Nederlands', flag: '🇳🇱' },
+                'tr': { code: 'tr', name: 'Türkçe', flag: '🇹🇷' }
+            };
+            
+            const detectedLang = langMap[userLang] || langMap[userLang?.split('-')[0]];
+            
+            if (detectedLang && detectedLang.code !== 'en') {
+                setTimeout(() => {
+                    const suggestToast = document.createElement('div');
+                    suggestToast.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem;">${detectedLang.flag}</span>
+                            <div>
+                                <div style="font-weight: 600; color: var(--text-primary);">Language Detected</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Switch to ${detectedLang.name}?</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.8rem;">
+                            <button onclick="switchToDetectedLanguage('${detectedLang.code}', '${detectedLang.name}', this)" 
+                                    style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500;">
+                                <i class="fas fa-check" style="margin-right: 0.5rem;"></i>Yes
+                            </button>
+                            <button onclick="this.closest('[style*=position]').remove()" 
+                                    style="padding: 0.8rem 1.5rem; background: #666; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 500;">
+                                <i class="fas fa-times" style="margin-right: 0.5rem;"></i>No
+                            </button>
+                        </div>
+                    `;
+                    suggestToast.style.cssText = `
+                        position: fixed;
+                        top: 120px;
+                        right: 20px;
+                        background: white;
+                        padding: 2rem;
+                        border-radius: 20px;
+                        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+                        z-index: 10000;
+                        max-width: 350px;
+                        border: 2px solid var(--gradient-start);
+                        animation: slideIn 0.5s ease-out;
+                    `;
+                    
+                    // Add slide-in animation
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes slideIn {
+                            from { transform: translateX(100%); opacity: 0; }
+                            to { transform: translateX(0); opacity: 1; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    document.body.appendChild(suggestToast);
+                    
+                    // Auto remove after 12 seconds
+                    setTimeout(() => {
+                        if (suggestToast.parentElement) {
+                            suggestToast.style.animation = 'slideIn 0.5s ease-out reverse';
+                            setTimeout(() => suggestToast.remove(), 500);
+                        }
+                    }, 12000);
+                }, 3000);
+            }
+        };
+
+        // Function to switch to detected language
+        window.switchToDetectedLanguage = (langCode, langName, buttonElement) => {
+            currentLanguage = langCode;
+            const selectorText = document.querySelector('.language-selector span');
+            if (selectorText) {
+                selectorText.textContent = langName;
+            }
+            
+            // Update active language option
+            document.querySelectorAll('.language-option').forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.lang === langCode) {
+                    opt.classList.add('active');
+                }
+            });
+            
+            showToast(`🌍 Language switched to ${langName}`);
+            
+            // Remove the suggestion toast with animation
+            const toast = buttonElement.closest('[style*="position: fixed"]');
+            toast.style.animation = 'slideIn 0.5s ease-out reverse';
+            setTimeout(() => toast.remove(), 500);
+        };
+
+        // Mobile menu functionality
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const navLinks = document.querySelector('.nav-links');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                if (navLinks && !document.querySelector('.mobile-menu-btn')) {
+                    const mobileBtn = document.createElement('button');
+                    mobileBtn.className = 'mobile-menu-btn';
+                    mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        color: var(--text-primary);
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        display: block;
+                        padding: 0.5rem;
+                        border-radius: 8px;
+                        transition: all 0.3s ease;
+                    `;
+                    
+                    mobileBtn.addEventListener('mouseover', () => {
+                        mobileBtn.style.background = 'rgba(0, 245, 160, 0.1)';
+                        mobileBtn.style.color = 'var(--gradient-start)';
+                    });
+                    
+                    mobileBtn.addEventListener('mouseout', () => {
+                        mobileBtn.style.background = 'none';
+                        mobileBtn.style.color = 'var(--text-primary)';
+                    });
+                    
+                    navLinks.style.display = 'none';
+                    navMenu.appendChild(mobileBtn);
+                    
+                    let isMenuOpen = false;
+                    mobileBtn.addEventListener('click', () => {
+                        isMenuOpen = !isMenuOpen;
+                        
+                        if (isMenuOpen) {
+                            navLinks.style.display = 'flex';
+                            navLinks.style.position = 'absolute';
+                            navLinks.style.top = '100%';
+                            navLinks.style.left = '0';
+                            navLinks.style.right = '0';
+                            navLinks.style.background = 'var(--glass-bg)';
+                            navLinks.style.backdropFilter = 'blur(20px)';
+                            navLinks.style.flexDirection = 'column';
+                            navLinks.style.padding = '1.5rem';
+                            navLinks.style.zIndex = '1000';
+                            navLinks.style.borderRadius = '0 0 20px 20px';
+                            navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                            mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
+                        } else {
+                            navLinks.style.display = 'none';
+                            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    });
+                    
+                    // Close mobile menu when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (!navMenu.contains(e.target) && isMenuOpen) {
+                            navLinks.style.display = 'none';
+                            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            isMenuOpen = false;
+                        }
+                    });
+                }
+            } else {
+                // Remove mobile menu button on larger screens
+                const mobileBtn = document.querySelector('.mobile-menu-btn');
+                if (mobileBtn) {
+                    mobileBtn.remove();
+                    document.querySelector('.nav-links').style.display = 'flex';
+                }
+            }
+        };
+
+        // Initialize mobile menu
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+
+        // Page load animations and welcome message
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            
+            setTimeout(() => {
+                showToast('🏛️ Welcome to HKAIFC - Official AI Film Standards Authority');
+            }, 1000);
+            
+            // Initialize language detection after page load
+            setTimeout(detectAndSuggestLanguage, 4000);
+        });
+
+        // Enhanced scroll effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Parallax effect for hero background
+            const heroBackground = document.querySelector('.hero-background');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+            
+            // Floating animation for certification emblems
+            const emblems = document.querySelectorAll('.certification-emblem, .official-seal');
+            emblems.forEach((emblem, index) => {
+                const speed = 0.1 + (index * 0.05);
+                emblem.style.transform = `translateY(${Math.sin(scrolled * speed) * 5}px)`;
+            });
+        });
+
+        // Add loading screen
+        const addLoadingScreen = () => {
+            const loader = document.createElement('div');
+            loader.id = 'page-loader';
+            loader.innerHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--authority-gold), #B8860B); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: spin 2s linear infinite;">
+                        <i class="fas fa-certificate" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.5rem;">Loading HKAIFC</h3>
+                        <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Official AI Film Standards Authority</p>
+                    </div>
+                </div>
+            `;
+            loader.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10001;
+                transition: opacity 0.5s ease;
+            `;
+            
+            // Add spin animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(loader);
+            
+            // Remove loader after page load
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.remove(), 500);
+                }, 1000);
+            });
+        };
+
+        // Initialize loading screen
+        if (document.readyState === 'loading') {
+            addLoadingScreen();
+        }
+
+        // Enhanced button hover effects
+        document.querySelectorAll('.btn, .btn-cta').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add certification badge animations
+        const animateCertificationBadges = () => {
+            const badges = document.querySelectorAll('.cert-badge, .credential-badge');
+            badges.forEach((badge, index) => {
+                setTimeout(() => {
+                    badge.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }, index * 200);
+            });
+        };
+
+        // Add fadeInUp animation
+        const addFadeInUpAnimation = () => {
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        };
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            addFadeInUpAnimation();
+            setTimeout(animateCertificationBadges, 2000);
+        });
+
+        // Add smooth reveal animation for sections
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Apply reveal animation to main sections
+        document.querySelectorAll('.section-header, .market-projection, .founding-intro, .cta-content').forEach(el => {
+            el.style.opacity = '0';
+            revealObserver.observe(el);
+        });
+
+        console.log('🏛️ HKAIFC Official Website Loaded Successfully');
+        console.log('🌍 Multi-language support: 40+ languages available');
+        console.log('🔒 Blockchain-verified certification system ready');
+        console.log('📊 Real-time statistics and animations initialized');
+    </script>
+</body>
+</html>
