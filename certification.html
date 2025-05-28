@@ -812,6 +812,48 @@
     </style>
 </head>
 <body>
+    <nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="certification.html">Certification</a></li>
+    <li><a href="standards.html">Standards</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* 可选的简单样式，让菜单看起来更清晰一点 */
+  nav {
+    background-color: #f1f1f1; /* 菜单背景色 */
+    overflow: hidden; /* 确保背景色包裹浮动元素 */
+    width: 100%; /* 菜单宽度占满 */
+  }
+  nav ul {
+    list-style-type: none; /* 去掉列表符号 */
+    padding: 0;
+    margin: 0 auto; /* 居中显示菜单项（如果整体宽度有限制） */
+    text-align: center; /* 让内联块元素居中 */
+  }
+  nav li {
+    display: inline-block; /* 让列表项横向排列，并可以设置padding/margin */
+    /* 如果希望每个菜单项宽度一致或有特定布局，可以使用 float: left; 但 inline-block 更易于居中 */
+  }
+  nav li a {
+    display: block; /* 将链接转为块级元素，方便设置padding */
+    color: #333; /* 链接文字颜色 */
+    text-align: center;
+    padding: 14px 16px; /* 上下和左右内边距 */
+    text-decoration: none; /* 去掉下划线 */
+    font-family: Arial, sans-serif; /* 使用一个通用的字体 */
+  }
+  nav li a:hover {
+    background-color: #ddd; /* 鼠标悬停时的背景色 */
+    color: black; /* 鼠标悬停时文字颜色 */
+  }
+</style>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
