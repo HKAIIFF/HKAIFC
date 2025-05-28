@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - HKAIFC | Hong Kong AI Film Standards Committee</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --premium-white: #FFFFFF;
+            --tech-silver: #F5F5F7;
+            --gradient-start: #00F5A0;
+            --gradient-end: #00D9F5;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --authority-gold: #FFD700;
+            --certification-blue: #0066CC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .certification-emblem {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .emblem-outer {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .emblem-outer::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 3px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -8px;
+            left: -8px;
+            opacity: 0.6;
+        }
+
+        .emblem-inner {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--text-primary), var(--certification-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--glass-bg);
+            color: var(--gradient-end);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            background: var(--tech-silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 12rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 245, 160, 0.1), rgba(0, 217, 245, 0.1));
+            position: relative;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--gradient-end);
+            text-decoration: none;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid */
+        .contact-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .contact-info {
+            background: var(--premium-white);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--tech-silver);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-details a {
+            color: var(--gradient-end);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E5E5E5;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gradient-start);
+            box-shadow: 0 0 0 3px rgba(0, 245, 160, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--premium-white);
+            box-shadow: 0 4px 15px rgba(0, 245, 160, 0.3);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Office Locations */
+        .office-locations {
+            background: var(--premium-white);
+            padding: 6rem 2rem;
+        }
+
+        .locations-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .location-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .location-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-flag {
+            font-size: 2rem;
+        }
+
+        .location-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .location-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .location-address {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .location-services {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .location-services h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            color: var(--gradient-start);
+            font-weight: bold;
+        }
+
+        /* Contact Methods */
+        .contact-methods {
+            background: var(--tech-silver);
+            padding: 6rem 2rem;
+        }
+
+        .methods-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .method-card {
+            background: var(--premium-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .method-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .method-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .method-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .method-action {
+            color: var(--gradient-end);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Business Hours */
+        .business-hours {
+            background: var(--premium-white);
+            padding: 4rem 2rem;
+        }
+
+        .hours-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hours-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hours-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hours-time {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .availability-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--premium-white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--authority-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-start);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="certification-emblem">
+                    <div class="emblem-outer">
+                        <div class="emblem-inner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">HKAIFC</div>
+                    <div class="logo-subtitle">Standards Authority</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#certification">Certification</a>
+                    <a href="#standards">Standards</a>
+                    <a href="#membership">Membership</a>
+                    <a href="#news">News</a>
+                    <a href="#contact" class="active">Contact</a>
+                </div>
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="breadcrumb">
+            <a href="#home">Home</a> / <span>Contact Us</span>
+        </div>
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">
+            Get in touch with the Hong Kong AI Film Standards Committee. 
+            We're here to support your AI film certification journey and answer any questions.
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2 class="section-title">Get In Touch</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Headquarters</h4>
+                        <p>
+                            88/F, IFC Two, Central<br>
+                            Hong Kong SAR<br>
+                            <strong>Official Standards Development Organization</strong><br>
+                            <em>Supported by Hong Kong SAR Government</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email Addresses</h4>
+                        <p>
+                            <strong>General Inquiries:</strong><br>
+                            <a href="mailto:info@hkaifc.org">info@hkaifc.org</a><br><br>
+                            
+                            <strong>Certification Services:</strong><br>
+                            <a href="mailto:certification@hkaifc.org">certification@hkaifc.org</a><br><br>
+                            
+                            <strong>Membership Services:</strong><br>
+                            <a href="mailto:membership@hkaifc.org">membership@hkaifc.org</a><br><br>
+                            
+                            <strong>International Cooperation:</strong><br>
+                            <a href="mailto:international@hkaifc.org">international@hkaifc.org</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Online Services</h4>
+                        <p>
+                            <strong>Official Website:</strong><br>
+                            <a href="https://www.hkaifc.org" target="_blank">www.hkaifc.org</a><br><br>
+                            
+                            <strong>Certification Portal:</strong><br>
+                            <a href="https://portal.hkaifc.org" target="_blank">portal.hkaifc.org</a><br><br>
+                            
+                            <strong>Standards Library:</strong><br>
+                            <a href="https://standards.hkaifc.org" target="_blank">standards.hkaifc.org</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Business Hours</h4>
+                        <p>
+                            <strong>Office Hours:</strong><br>
+                            Monday - Friday: 9:00 AM - 6:00 PM (HKT)<br><br>
+                            
+                            <strong>Digital Services:</strong><br>
+                            Available 24/7<br><br>
+                            
+                            <strong>Emergency Support:</strong><br>
+                            Available for certified members
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2 class="section-title">Send Us a Message</h2>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    Thank you for your message! We will respond within 24 hours.
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organization / Company</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inquiryType">Inquiry Type *</label>
+                            <select id="inquiryType" name="inquiryType" required>
+                                <option value="">Select an option</option>
+                                <option value="work-certification">Work Certification</option>
+                                <option value="professional-certification">Professional Certification</option>
+                                <option value="membership">Membership Inquiry</option>
+                                <option value="standards">Standards Information</option>
+                                <option value="partnership">Partnership/Cooperation</option>
+                                <option value="media">Media/Press Inquiry</option>
+                                <option value="technical-support">Technical Support</option>
+                                <option value="general">General Question</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="urgency">Urgency Level</label>
+                            <select id="urgency" name="urgency">
+                                <option value="low">Low - General inquiry</option>
+                                <option value="medium">Medium - Business matter</option>
+                                <option value="high">High - Urgent issue</option>
+                                <option value="critical">Critical - Emergency</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required 
+                                  placeholder="Please provide detailed information about your inquiry. Include any relevant project details, certification requirements, or specific questions."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required style="margin-right: 0.5rem;">
+                            I agree to the <a href="#privacy" style="color: var(--gradient-end);">Privacy Policy</a> and consent to the processing of my personal data.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods">
+        <div class="methods-container">
+            <h2 class="section-title">How We Can Help</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 0;">
+                Choose the most convenient way to reach us based on your needs
+            </p>
+            
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="method-title">Certification Support</h3>
+                    <p class="method-description">
+                        Get guidance on work certification, professional certification processes, and requirements.
+                    </p>
+                    <a href="mailto:certification@hkaifc.org" class="method-action">
+                        <i class="fas fa-envelope"></i>
+                        certification@hkaifc.org
+                    </a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="method-title">Membership Services</h3>
+                    <p class="method-description">
+                        Learn about membership benefits, application process, and exclusive member services.
+                    </p>
+                    <a href="mailto:membership@hkaifc.org" class="method-action">
+                        <i class="fas fa-envelope"></i>
+                        membership@hkaifc.org
+                    </a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="method-title">Standards Information</h3>
+                    <p class="method-description">
+                        Access technical standards, documentation, and participate in standards development.
+                    </p>
+                    <a href="mailto:standards@hkaifc.org" class="method-action">
+                        <i class="fas fa-envelope"></i>
+                        standards@hkaifc.org
+                    </a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="method-title">Partnership & Cooperation</h3>
+                    <p class="method-description">
+                        Explore partnership opportunities, international cooperation, and strategic alliances.
+                    </p>
+                    <a href="mailto:international@hkaifc.org" class="method-action">
+                        <i class="fas fa-envelope"></i>
+                        international@hkaifc.org
+                    </a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="method-title">Media & Press</h3>
+                    <p class="method-description">
+                        Media inquiries, press releases, interview requests, and industry communications.
+                    </p>
+                    <a href="mailto:press@hkaifc.org" class="method-action">
+                        <i class="fas fa-envelope"></i>
+                        press@hkaifc.org
+                    </a>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="method-title">Technical Support</h3>
+                    <p class="method-description">
+                        Platform assistance, technical issues, and digital certification system support.
+                    </p>
+                    <a href="mailto:tech@hkaifc.org" class="method-action">
+                        <i class="fas fa-envelope"></i>
+                        tech@hkaifc.org
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="office-locations">
+        <div class="locations-container">
+            <h2 class="section-title">Global Presence</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 0;">
+                Our headquarters and planned regional offices worldwide
+            </p>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <span class="location-flag">🇭🇰</span>
+                        <div>
+                            <h3 class="location-name">Hong Kong Headquarters</h3>
+                            <span class="location-status">Operational</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        88/F, IFC Two, Central<br>
+                        Hong Kong SAR<br>
+                        China
+                    </div>
+                    <div class="location-services">
+                        <h5>Services Available:</h5>
+                        <ul class="service-list">
+                            <li>Work Certification</li>
+                            <li>Professional Certification</li>
+                            <li>Standards Development</li>
+                            <li>Membership Services</li>
+                            <li>International Cooperation</li>
+                            <li>Executive Office</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <span class="location-flag">🇨🇳</span>
+                        <div>
+                            <h3 class="location-name">Mainland China Office</h3>
+                            <span class="location-status" style="background: #FFA500;">Opening 2026</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        Planned Location:<br>
+                        Shenzhen / Shanghai<br>
+                        Mainland China
+                    </div>
+                    <div class="location-services">
+                        <h5>Planned Services:</h5>
+                        <ul class="service-list">
+                            <li>Regional Certification</li>
+                            <li>Local Partnership</li>
+                            <li>Standards Promotion</li>
+                            <li>Training Programs</li>
+                            <li>Market Development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <span class="location-flag">🇸🇬</span>
+                        <div>
+                            <h3 class="location-name">Southeast Asia Hub</h3>
+                            <span class="location-status" style="background: #FFA500;">Opening 2026</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        Planned Location:<br>
+                        Singapore<br>
+                        Southeast Asia
+                    </div>
+                    <div class="location-services">
+                        <h5>Planned Services:</h5>
+                        <ul class="service-list">
+                            <li>ASEAN Cooperation</li>
+                            <li>Regional Standards</li>
+                            <li>Multi-language Support</li>
+                            <li>Cultural Adaptation</li>
+                            <li>Local Partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <span class="location-flag">🇺🇸</span>
+                        <div>
+                            <h3 class="location-name">North America Office</h3>
+                            <span class="location-status" style="background: #FFA500;">Opening 2027</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        Planned Location:<br>
+                        Los Angeles / New York<br>
+                        United States
+                    </div>
+                    <div class="location-services">
+                        <h5>Planned Services:</h5>
+                        <ul class="service-list">
+                            <li>Hollywood Partnerships</li>
+                            <li>US Market Development</li>
+                            <li>Technology Innovation</li>
+                            <li>Industry Collaboration</li>
+                            <li>Standards Harmonization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <span class="location-flag">🇪🇺</span>
+                        <div>
+                            <h3 class="location-name">European Office</h3>
+                            <span class="location-status" style="background: #FFA500;">Opening 2027</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        Planned Location:<br>
+                        London / Frankfurt<br>
+                        Europe
+                    </div>
+                    <div class="location-services">
+                        <h5>Planned Services:</h5>
+                        <ul class="service-list">
+                            <li>EU Compliance</li>
+                            <li>GDPR Alignment</li>
+                            <li>European Partnerships</li>
+                            <li>Standards Integration</li>
+                            <li>Cultural Programming</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <span class="location-flag">🇯🇵</span>
+                        <div>
+                            <h3 class="location-name">Japan Office</h3>
+                            <span class="location-status" style="background: #FFA500;">Opening 2027</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        Planned Location:<br>
+                        Tokyo<br>
+                        Japan
+                    </div>
+                    <div class="location-services">
+                        <h5>Planned Services:</h5>
+                        <ul class="service-list">
+                            <li>Anime/Gaming Integration</li>
+                            <li>Technology Innovation</li>
+                            <li>Cultural Content</li>
+                            <li>Quality Standards</li>
+                            <li>Industry Partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="business-hours">
+        <div class="hours-container">
+            <h2 class="section-title">Service Availability</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 0;">
+                Our commitment to supporting your AI film certification journey around the clock
+            </p>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h4 class="hours-title">🏢 Office Hours</h4>
+                    <div class="hours-time">
+                        Monday - Friday<br>
+                        9:00 AM - 6:00 PM<br>
+                        Hong Kong Time (UTC+8)
+                    </div>
+                </div>
+
+                <div class="hours-card">
+                    <h4 class="hours-title">💻 Digital Services</h4>
+                    <div class="hours-time">
+                        24/7 Available<br>
+                        Certification Portal<br>
+                        Standards Library<br>
+                        Online Applications
+                    </div>
+                    <div class="availability-status">
+                        <span class="status-dot"></span>
+                        Online Now
+                    </div>
+                </div>
+
+                <div class="hours-card">
+                    <h4 class="hours-title">📧 Email Response</h4>
+                    <div class="hours-time">
+                        Standard Inquiries:<br>
+                        Within 24 hours<br><br>
+                        Urgent Matters:<br>
+                        Within 4 hours
+                    </div>
+                </div>
+
+                <div class="hours-card">
+                    <h4 class="hours-title">🆘 Emergency Support</h4>
+                    <div class="hours-time">
+                        For Certified Members<br>
+                        Critical Issues Only<br>
+                        24/7 Emergency Line<br>
+                        Premium Support
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background: var(--tech-silver); padding: 6rem 2rem;">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 3rem;">
+                Quick answers to common questions about HKAIFC services and processes
+            </p>
+            
+            <div style="display: grid; gap: 1.5rem; text-align: left;">
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-question-circle" style="color: var(--gradient-start);"></i>
+                        How long does the certification process take?
+                    </h4>
+                    <p style="color: var(--text-secondary);">
+                        Work certification typically takes 4-6 weeks from application submission to certificate issuance. 
+                        Professional certification varies from 2-4 weeks depending on the level and complexity.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-question-circle" style="color: var(--gradient-start);"></i>
+                        What are the certification fees?
+                    </h4>
+                    <p style="color: var(--text-secondary);">
+                        Work certification is ¥5,000 RMB for all levels. Professional certification ranges from ¥3,000 RMB 
+                        (Levels 1-3) to ¥30,000 RMB (Levels 4-5). Members receive significant discounts.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-question-circle" style="color: var(--gradient-start);"></i>
+                        Do you offer consultation services?
+                    </h4>
+                    <p style="color: var(--text-secondary);">
+                        Yes, we provide expert consultation services at ¥1,000/hour. We also offer standards interpretation 
+                        training, certification guidance, and customized corporate training programs.
+                    </p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-question-circle" style="color: var(--gradient-start);"></i>
+                        How can I become a member?
+                    </h4>
+                    <p style="color: var(--text-secondary);">
+                        We offer various membership levels: Individual (¥5,000/year), Institutional (¥50,000/year), 
+                        Corporate (¥100,000/year), and Founding Members (¥500,000/year). Each level has specific requirements and benefits.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="#faq" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); color: white; text-decoration: none; border-radius: 12px; font-weight: 600;">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Complete FAQ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--authority-gold), #B8860B); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-certificate" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; color: white;">HKAIFC</h4>
+                            <div style="font-size: 0.8rem; color: var(--authority-gold);">Official Standards Authority</div>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.6;">
+                        The authoritative standards development and certification organization for the global AI-native film industry.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#certification">Certification</a></li>
+                        <li><a href="#standards">Standards</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#news">News</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#work-cert">Work Certification</a></li>
+                        <li><a href="#prof-cert">Professional Certification</a></li>
+                        <li><a href="#training">Training Programs</a></li>
+                        <li><a href="#consultation">Expert Consultation</a></li>
+                        <li><a href="#partnership">Partnership</a></li>
+                        <li><a href="#support">Technical Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#legal">Legal Notice</a></li>
+                        <li><a href="#disclaimer">Disclaimer</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                        <li><a href="#compliance">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Hong Kong AI Film Standards Committee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+            
+            // Show toast notification
+            showToast('Your message has been sent successfully! We will respond within 24 hours.');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Toast notification system
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--text-primary);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                max-width: 90%;
+                text-align: center;
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '1';
+            }, 100);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Dynamic inquiry type handling
+        document.getElementById('inquiryType').addEventListener('change', function() {
+            const subjectField = document.getElementById('subject');
+            const inquiryTypes = {
+                'work-certification': 'Work Certification Inquiry - ',
+                'professional-certification': 'Professional Certification Inquiry - ',
+                'membership': 'Membership Application Inquiry - ',
+                'standards': 'Standards Information Request - ',
+                'partnership': 'Partnership/Cooperation Proposal - ',
+                'media': 'Media/Press Inquiry - ',
+                'technical-support': 'Technical Support Request - ',
+                'general': 'General Inquiry - '
+            };
+            
+            if (this.value && inquiryTypes[this.value]) {
+                subjectField.value = inquiryTypes[this.value];
+            }
+        });
+
+        // Email link interactions
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                showToast('Opening your email client...');
+            });
+        });
+
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (currentScroll < lastScroll) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Language selector functionality
+        document.querySelector('.language-selector').addEventListener('click', function() {
+            showToast('Language selection feature - Switch between 15+ supported languages');
+        });
+
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            showToast('Contact HKAIFC - We\'re here to help with your AI film certification needs');
+        });
+
+        // Form validation enhancements
+        document.querySelectorAll('input[required], select[required], textarea[required]').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.style.borderColor = '#ff4444';
+                } else {
+                    this.style.borderColor = var(--gradient-start);
+                }
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.style.borderColor = var(--gradient-start);
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to cards
+        document.querySelectorAll('.contact-item, .method-card, .location-card, .hours-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+                

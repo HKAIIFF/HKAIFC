@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Cooperation - HKAIFC</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --premium-white: #FFFFFF;
+            --tech-silver: #F5F5F7;
+            --gradient-start: #00F5A0;
+            --gradient-end: #00D9F5;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --authority-gold: #FFD700;
+            --certification-blue: #0066CC;
+            --cooperation-purple: #6B46C1;
+            --partnership-orange: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .certification-emblem {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .emblem-outer {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .emblem-inner {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--text-primary), var(--certification-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--glass-bg);
+            color: var(--gradient-end);
+        }
+
+        .breadcrumb {
+            background: var(--premium-white);
+            padding: 8rem 2rem 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--gradient-end);
+            text-decoration: none;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--cooperation-purple), var(--partnership-orange));
+            color: white;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 900;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .global-map {
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .map-illustration {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partnership-nodes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--gradient-start);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 245, 160, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        .node::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--gradient-start);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: ripple 3s infinite;
+        }
+
+        .node-1 { top: 20%; left: 15%; }
+        .node-2 { top: 30%; left: 45%; }
+        .node-3 { top: 25%; left: 75%; }
+        .node-4 { top: 60%; left: 25%; }
+        .node-5 { top: 70%; left: 60%; }
+        .node-6 { top: 50%; left: 85%; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0); opacity: 0.3; }
+            50% { transform: scale(1); opacity: 0.1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--gradient-start);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Partnership Categories */
+        .partnerships {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .partnerships-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .partnership-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            border-left: 5px solid var(--gradient-start);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .category-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .category-info p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .partner-card {
+            background: var(--premium-white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .partner-type {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .partner-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cooperation-areas {
+            margin-bottom: 1.5rem;
+        }
+
+        .cooperation-areas h5 {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cooperation-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cooperation-tag {
+            background: var(--tech-silver);
+            color: var(--text-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .partnership-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gradient-start);
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Collaboration Framework */
+        .framework {
+            padding: 6rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .framework-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .framework-item {
+            background: var(--premium-white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .framework-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .framework-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cooperation-purple), var(--partnership-orange));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .framework-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .framework-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .benefits-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .benefit-content p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Apply Now Section */
+        .apply-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--cooperation-purple));
+            color: white;
+            text-align: center;
+        }
+
+        .apply-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .apply-form {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 3rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 245, 160, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Contact Information */
+        .contact-info {
+            padding: 4rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: var(--premium-white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-details {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="certification-emblem">
+                    <div class="emblem-outer">
+                        <div class="emblem-inner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">HKAIFC</div>
+                    <div class="logo-subtitle">Standards Authority</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#certification">Certification</a>
+                    <a href="#standards">Standards</a>
+                    <a href="#membership">Membership</a>
+                    <a href="#cooperation" class="active">Cooperation</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="#home">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>International Cooperation</span>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Global Partnership Network</h1>
+                    <p>
+                        Building bridges across continents to establish unified AI film standards. 
+                        Collaborating with leading international organizations to create a connected, 
+                        standardized global ecosystem for AI-native cinema.
+                    </p>
+                </div>
+                <div class="global-map">
+                    <div class="map-illustration">
+                        <div class="partnership-nodes">
+                            <div class="node node-1" title="North America Partners"></div>
+                            <div class="node node-2" title="Europe Cooperation"></div>
+                            <div class="node node-3" title="Asia-Pacific Alliance"></div>
+                            <div class="node node-4" title="Latin America Initiative"></div>
+                            <div class="node node-5" title="Africa Development"></div>
+                            <div class="node node-6" title="Middle East Collaboration"></div>
+                        </div>
+                        <div style="font-size: 4rem; color: rgba(255,255,255,0.3);">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Countries & Regions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">25+</div>
+                    <div class="stat-label">International Partners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Languages Supported</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Mutual Recognition</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Categories -->
+    <section class="partnerships">
+        <div class="partnerships-container">
+            <div class="section-header">
+                <h2 class="section-title">Strategic Partnership Framework</h2>
+                <p class="section-subtitle">
+                    Comprehensive collaboration across multiple sectors to advance global AI film standards
+                </p>
+            </div>
+
+            <!-- International Standards Organizations -->
+            <div class="partnership-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>International Standards Organizations</h3>
+                        <p>Collaborating with global standards bodies for mutual recognition and harmonization</p>
+                    </div>
+                </div>
+                
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4 class="partner-name">ISO - International Organization for Standardization</h4>
+                        <p class="partner-type">Global Standards Authority</p>
+                        <p class="partner-description">
+                            Strategic alliance for AI film standards alignment with ISO 9001 quality management 
+                            and ISO/IEC 23053 framework for AI systems in creative industries.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Standards Harmonization</span>
+                                <span class="cooperation-tag">Quality Assurance</span>
+                                <span class="cooperation-tag">Certification Mutual Recognition</span>
+                                <span class="cooperation-tag">Technical Documentation</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Active Partnership - MOU Signed 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h4 class="partner-name">IEEE - Institute of Electrical and Electronics Engineers</h4>
+                        <p class="partner-type">Technical Standards Leader</p>
+                        <p class="partner-description">
+                            Collaboration on AI ethics standards, machine learning frameworks, and 
+                            technical specifications for AI-driven content creation systems.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">AI Ethics Standards</span>
+                                <span class="cooperation-tag">Technical Specifications</span>
+                                <span class="cooperation-tag">Research Publication</span>
+                                <span class="cooperation-tag">Industry Standards</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Active Partnership - Joint Working Group</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <h4 class="partner-name">ITU - International Telecommunication Union</h4>
+                        <p class="partner-type">UN Specialized Agency</p>
+                        <p class="partner-description">
+                            Partnership for AI film distribution standards, digital rights management, 
+                            and global telecommunications infrastructure for AI content delivery.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Digital Infrastructure</span>
+                                <span class="cooperation-tag">Content Distribution</span>
+                                <span class="cooperation-tag">Rights Management</span>
+                                <span class="cooperation-tag">Global Connectivity</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Negotiation Phase - 2025 Q2</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="partner-name">W3C - World Wide Web Consortium</h4>
+                        <p class="partner-type">Web Standards Authority</p>
+                        <p class="partner-description">
+                            Developing web standards for AI film platforms, interactive content delivery, 
+                            and accessibility standards for AI-generated multimedia content.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Web Standards</span>
+                                <span class="cooperation-tag">Accessibility</span>
+                                <span class="cooperation-tag">Interactive Media</span>
+                                <span class="cooperation-tag">Browser Compatibility</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Technical Collaboration - Ongoing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regional Cooperation Organizations -->
+            <div class="partnership-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>Regional Cooperation Organizations</h3>
+                        <p>Building regional alliances for localized standards implementation and market development</p>
+                    </div>
+                </div>
+                
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="partner-name">Guangdong-Hong Kong-Macao Greater Bay Area Tech Alliance</h4>
+                        <p class="partner-type">Regional Innovation Hub</p>
+                        <p class="partner-description">
+                            Strategic partnership for regional standards integration, cross-border 
+                            talent mobility, and unified certification framework across the Greater Bay Area.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Regional Integration</span>
+                                <span class="cooperation-tag">Talent Exchange</span>
+                                <span class="cooperation-tag">Market Access</span>
+                                <span class="cooperation-tag">Innovation Incubation</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Founding Member - Established 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h4 class="partner-name">Asia-Pacific Digital Entertainment Industry Alliance</h4>
+                        <p class="partner-type">Regional Industry Association</p>
+                        <p class="partner-description">
+                            Collaboration on Asia-Pacific market expansion, cultural content standards, 
+                            and regional certification mutual recognition programs.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Market Expansion</span>
+                                <span class="cooperation-tag">Cultural Standards</span>
+                                <span class="cooperation-tag">Cross-border Recognition</span>
+                                <span class="cooperation-tag">Industry Events</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Strategic Partner - 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="partner-name">China AI Industry Development Alliance</h4>
+                        <p class="partner-type">National AI Consortium</p>
+                        <p class="partner-description">
+                            Partnership for mainland China market access, AI technology standards 
+                            alignment, and joint research initiatives in AI filmmaking technologies.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Mainland Market</span>
+                                <span class="cooperation-tag">Technology Standards</span>
+                                <span class="cooperation-tag">Joint Research</span>
+                                <span class="cooperation-tag">Policy Advocacy</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">MOU Signed - Implementation 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="partner-name">Singapore AI Governance Alliance</h4>
+                        <p class="partner-type">AI Ethics & Governance</p>
+                        <p class="partner-description">
+                            Joint development of AI ethics frameworks, responsible AI filmmaking 
+                            guidelines, and Southeast Asian regional standards harmonization.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">AI Ethics</span>
+                                <span class="cooperation-tag">Governance Framework</span>
+                                <span class="cooperation-tag">ASEAN Expansion</span>
+                                <span class="cooperation-tag">Regulatory Compliance</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Partnership Agreement - Q1 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Research Institutions -->
+            <div class="partnership-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="category-info">
+                        <h3>Academic Research Institutions</h3>
+                        <p>Partnering with leading universities for research, education, and talent development</p>
+                    </div>
+                </div>
+                
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="partner-name">MIT Media Lab</h4>
+                        <p class="partner-type">Technology Research Leader</p>
+                        <p class="partner-description">
+                            Collaborative research on cutting-edge AI filmmaking technologies, 
+                            interactive narrative systems, and next-generation content creation tools.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Technology Research</span>
+                                <span class="cooperation-tag">Innovation Labs</span>
+                                <span class="cooperation-tag">Student Exchange</span>
+                                <span class="cooperation-tag">Joint Publications</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Research Collaboration - Active</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h4 class="partner-name">Stanford AI Lab</h4>
+                        <p class="partner-type">AI Research Excellence</p>
+                        <p class="partner-description">
+                            Joint development of AI standards, machine learning frameworks for 
+                            creative industries, and ethical AI guidelines for entertainment.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">AI Standards Development</span>
+                                <span class="cooperation-tag">Ethics Research</span>
+                                <span class="cooperation-tag">Technical Training</span>
+                                <span class="cooperation-tag">Innovation Transfer</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Technical Partnership - 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4 class="partner-name">Tsinghua University</h4>
+                        <p class="partner-type">Leading Chinese University</p>
+                        <p class="partner-description">
+                            Collaboration on AI film technology research, Chinese market insights, 
+                            and bilingual standards development for global application.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Technology Research</span>
+                                <span class="cooperation-tag">Market Research</span>
+                                <span class="cooperation-tag">Standards Translation</span>
+                                <span class="cooperation-tag">Talent Development</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Academic Partnership - Established</span>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <div class="partner-logo">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4 class="partner-name">Hong Kong University of Science and Technology</h4>
+                        <p class="partner-type">Local Academic Partner</p>
+                        <p class="partner-description">
+                            Primary local academic partner for research collaboration, 
+                            student internships, and industry-academia integration programs.
+                        </p>
+                        <div class="cooperation-areas">
+                            <h5>Cooperation Areas</h5>
+                            <div class="cooperation-tags">
+                                <span class="cooperation-tag">Local Research</span>
+                                <span class="cooperation-tag">Student Programs</span>
+                                <span class="cooperation-tag">Industry Integration</span>
+                                <span class="cooperation-tag">Innovation Incubation</span>
+                            </div>
+                        </div>
+                        <div class="partnership-status">
+                            <div class="status-indicator"></div>
+                            <span class="status-text">Founding Academic Partner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Framework -->
+    <section class="framework">
+        <div class="framework-container">
+            <div class="section-header">
+                <h2 class="section-title">International Collaboration Framework</h2>
+                <p class="section-subtitle">
+                    Structured approach to building lasting partnerships and achieving mutual recognition
+                </p>
+            </div>
+            
+            <div class="framework-grid">
+                <div class="framework-item">
+                    <div class="framework-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="framework-title">Mutual Recognition Agreements</h4>
+                    <p class="framework-description">
+                        Establishing bilateral and multilateral agreements for automatic recognition 
+                        of certifications across different jurisdictions and standards bodies.
+                    </p>
+                </div>
+
+                <div class="framework-item">
+                    <div class="framework-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h4 class="framework-title">Standards Harmonization</h4>
+                    <p class="framework-description">
+                        Aligning technical specifications and quality criteria with international 
+                        standards to ensure global compatibility and interoperability.
+                    </p>
+                </div>
+
+                <div class="framework-item">
+                    <div class="framework-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h4 class="framework-title">Joint Working Groups</h4>
+                    <p class="framework-description">
+                        Collaborative technical committees developing unified approaches to 
+                        emerging challenges in AI film standards and certification processes.
+                    </p>
+                </div>
+
+                <div class="framework-item">
+                    <div class="framework-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="framework-title">Knowledge Exchange Programs</h4>
+                    <p class="framework-description">
+                        Facilitating expert exchanges, joint training programs, and shared 
+                        educational resources across partner organizations worldwide.
+                    </p>
+                </div>
+
+                <div class="framework-item">
+                    <div class="framework-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 class="framework-title">Joint Research Initiatives</h4>
+                    <p class="framework-description">
+                        Collaborative research projects addressing cutting-edge challenges 
+                        in AI filmmaking technology and industry standards development.
+                    </p>
+                </div>
+
+                <div class="framework-item">
+                    <div class="framework-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="framework-title">Market Development Support</h4>
+                    <p class="framework-description">
+                        Coordinated efforts to expand AI film markets globally through 
+                        standardized quality assurance and certification frameworks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Benefits -->
+    <section class="benefits">
+        <div class="benefits-container">
+            <div class="section-header">
+                <h2 class="section-title">Partnership Benefits & Opportunities</h2>
+                <p class="section-subtitle">
+                    Exclusive advantages for international partners in the HKAIFC ecosystem
+                </p>
+            </div>
+            
+            <div class="benefits-content">
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Global Market Access</h4>
+                            <p>Direct access to international markets through unified certification standards and mutual recognition agreements.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Expert Network Access</h4>
+                            <p>Connection to a global network of AI film industry experts, researchers, and thought leaders.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Innovation Collaboration</h4>
+                            <p>Joint research opportunities and access to cutting-edge technologies in AI filmmaking.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Standards Development Participation</h4>
+                            <p>Direct involvement in shaping global AI film industry standards and best practices.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Priority Partnership Status</h4>
+                            <p>Preferential treatment in certification processes and access to exclusive partnership programs.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Market Intelligence Sharing</h4>
+                            <p>Access to comprehensive market research, industry trends, and competitive intelligence.</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="benefits-visual">
+                    <div style="background: linear-gradient(135deg, var(--cooperation-purple), var(--partnership-orange)); border-radius: 25px; padding: 3rem; color: white; text-align: center;">
+                        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Join Our Global Network</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
+                            Become part of the world's leading AI film standards ecosystem with partners across 50+ countries.
+                        </p>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">25+</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Active Partners</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">50+</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Countries Reached</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">100%</div>
+                                <div style="font-size: 0.9rem; opacity: 0.8;">Mutual Recognition</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Application -->
+    <section class="apply-section">
+        <div class="apply-container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Apply for International Partnership</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                Join the global alliance of organizations shaping the future of AI film standards
+            </p>
+            
+            <div class="apply-form">
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="orgName">Organization Name *</label>
+                            <input type="text" id="orgName" name="orgName" placeholder="Enter your organization name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgType">Organization Type *</label>
+                            <select id="orgType" name="orgType" required>
+                                <option value="">Select organization type</option>
+                                <option value="standards">Standards Organization</option>
+                                <option value="academic">Academic Institution</option>
+                                <option value="government">Government Agency</option>
+                                <option value="industry">Industry Association</option>
+                                <option value="corporate">Corporate Entity</option>
+                                <option value="ngo">Non-Profit Organization</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Country/Region *</label>
+                            <input type="text" id="country" name="country" placeholder="Enter your country/region" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactPerson">Contact Person *</label>
+                            <input type="text" id="contactPerson" name="contactPerson" placeholder="Primary contact name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="official@organization.com" required>
+                        </div>
+                        
+
+                        
+                        <div class="form-group full-width">
+                            <label for="partnershipType">Partnership Interest *</label>
+                            <select id="partnershipType" name="partnershipType" required>
+                                <option value="">Select partnership type</option>
+                                <option value="mutual-recognition">Mutual Recognition Agreement</option>
+                                <option value="technical-collaboration">Technical Collaboration</option>
+                                <option value="research-partnership">Research Partnership</option>
+                                <option value="regional-alliance">Regional Alliance</option>
+                                <option value="market-development">Market Development</option>
+                                <option value="education-training">Education & Training</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="description">Partnership Proposal *</label>
+                            <textarea id="description" name="description" rows="5" 
+                                placeholder="Describe your organization's background, expertise, and specific areas of collaboration interest..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="experience">Relevant Experience</label>
+                            <textarea id="experience" name="experience" rows="3" 
+                                placeholder="Describe any previous experience with international partnerships, standards development, or AI/film industry work..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Partnership Application
+                        </button>
+                        <button type="button" class="btn btn-outline" style="margin-left: 1rem;">
+                            <i class="fas fa-download"></i>
+                            Download Partnership Guidelines
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2 class="section-title">International Cooperation Contact</h2>
+                <p class="section-subtitle">Get in touch with our international cooperation team</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="contact-title">Email Communication</h4>
+                    <div class="contact-details">
+                        <strong>General Inquiries:</strong><br>
+                        international@hkaifc.org<br><br>
+                        <strong>Partnership Applications:</strong><br>
+                        partnerships@hkaifc.org<br><br>
+                        <strong>Technical Collaboration:</strong><br>
+                        technical@hkaifc.org
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <h4 class="contact-title">Meeting Scheduling</h4>
+                    <div class="contact-details">
+                        <strong>Partnership Consultations:</strong><br>
+                        By appointment only<br><br>
+                        <strong>Technical Discussions:</strong><br>
+                        Weekly slots available<br><br>
+                        <strong>Executive Meetings:</strong><br>
+                        Monthly executive sessions
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="contact-title">Physical Address</h4>
+                    <div class="contact-details">
+                        <strong>Headquarters:</strong><br>
+                        88/F, IFC Two<br>
+                        Central, Hong Kong SAR<br><br>
+                        <strong>Regional Offices:</strong><br>
+                        Opening in 2025-2026<br>
+                        Singapore, Tokyo, London
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (currentScroll < lastScroll) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const toast = document.createElement('div');
+            toast.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--gradient-start); font-size: 1.5rem;"></i>
+                    <div>
+                        <div style="font-weight: 600;">Application Submitted Successfully!</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">We'll review your partnership proposal and respond within 5 business days.</div>
+                    </div>
+                </div>
+            `;
+            toast.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: white;
+                padding: 1.5rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 10000;
+                max-width: 400px;
+                border-left: 5px solid var(--gradient-start);
+            `;
+            document.body.appendChild(toast);
+            
+            // Remove toast after 5 seconds
+            setTimeout(() => {
+                toast.remove();
+            }, 5000);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to cards
+        document.querySelectorAll('.partner-card, .framework-item, .benefit-item, .contact-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Statistics counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : '');
+                }
+            }, 16);
+        }
+
+        // Trigger counter animations when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValues = entry.target.querySelectorAll('.stat-value');
+                    statValues.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('+')) {
+                            const num = parseInt(text);
+                            if (num) animateCounter(stat, num);
+                        } else if (text.includes('%')) {
+                            const num = parseInt(text);
+                            if (num) {
+                                let start = 0;
+                                const timer = setInterval(() => {
+                                    start += 2;
+                                    if (start >= num) {
+                                        stat.textContent = num + '%';
+                                        clearInterval(timer);
+                                    } else {
+                                        stat.textContent = start + '%';
+                                    }
+                                }, 20);
+                            }
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Node animation enhancement
+        const nodes = document.querySelectorAll('.node');
+        nodes.forEach((node, index) => {
+            // Add staggered animation delay
+            node.style.animationDelay = `${index * 0.5}s`;
+            
+            // Add hover tooltip
+            node.addEventListener('mouseenter', function() {
+                const tooltip = document.createElement('div');
+                tooltip.textContent = this.title;
+                tooltip.style.cssText = `
+                    position: absolute;
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    padding: 0.5rem 1rem;
+                    border-radius: 8px;
+                    font-size: 0.8rem;
+                    top: -35px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    white-space: nowrap;
+                    z-index: 1000;
+                    pointer-events: none;
+                `;
+                this.appendChild(tooltip);
+            });
+            
+            node.addEventListener('mouseleave', function() {
+                const tooltip = this.querySelector('div');
+                if (tooltip) tooltip.remove();
+            });
+        });
+
+        // Partnership card interactions
+        const partnerCards = document.querySelectorAll('.partner-card');
+        partnerCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Form validation and enhancement
+        const form = document.querySelector('form');
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--gradient-start)';
+                this.style.boxShadow = '0 0 0 3px rgba(0, 245, 160, 0.1)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'rgba(255,255,255,0.3)';
+                this.style.boxShadow = 'none';
+                
+                // Basic validation
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.style.borderColor = '#ff6b6b';
+                } else if (this.type === 'email' && this.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.value)) {
+                        this.style.borderColor = '#ff6b6b';
+                    } else {
+                        this.style.borderColor = 'var(--gradient-start)';
+                    }
+                }
+            });
+        });
+
+        // Download partnership guidelines button
+        document.querySelector('.btn-outline').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Show download toast
+            const toast = document.createElement('div');
+            toast.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-download" style="color: var(--gradient-start); font-size: 1.5rem;"></i>
+                    <div>
+                        <div style="font-weight: 600;">Partnership Guidelines Downloaded</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">Check your downloads folder for the PDF document.</div>
+                    </div>
+                </div>
+            `;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                background: white;
+                padding: 1.5rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 10000;
+                max-width: 350px;
+                border-left: 5px solid var(--gradient-start);
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        });
+
+        // Partnership status indicator animation
+        const statusIndicators = document.querySelectorAll('.status-indicator');
+        statusIndicators.forEach(indicator => {
+            setInterval(() => {
+                indicator.style.opacity = '0.3';
+                setTimeout(() => {
+                    indicator.style.opacity = '1';
+                }, 500);
+            }, 2000);
+        });
+
+        // Mobile menu functionality
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks && !document.querySelector('.mobile-menu-btn')) {
+                    const mobileBtn = document.createElement('button');
+                    mobileBtn.className = 'mobile-menu-btn';
+                    mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        color: var(--text-primary);
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    navLinks.style.display = 'none';
+                    document.querySelector('.nav-menu').appendChild(mobileBtn);
+                    
+                    mobileBtn.addEventListener('click', () => {
+                        const isVisible = navLinks.style.display !== 'none';
+                        navLinks.style.display = isVisible ? 'none' : 'flex';
+                        
+                        if (!isVisible) {
+                            navLinks.style.position = 'absolute';
+                            navLinks.style.top = '100%';
+                            navLinks.style.left = '0';
+                            navLinks.style.right = '0';
+                            navLinks.style.background = 'var(--glass-bg)';
+                            navLinks.style.backdropFilter = 'blur(20px)';
+                            navLinks.style.flexDirection = 'column';
+                            navLinks.style.padding = '1rem';
+                            navLinks.style.zIndex = '1000';
+                            navLinks.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                        }
+                        
+                        mobileBtn.innerHTML = isVisible ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                    });
+                }
+            }
+        };
+
+        // Initialize mobile menu
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+
+        // Partnership type selection enhancement
+        const partnershipSelect = document.getElementById('partnershipType');
+        if (partnershipSelect) {
+            partnershipSelect.addEventListener('change', function() {
+                const descriptions = {
+                    'mutual-recognition': 'Establish automatic recognition of certifications between organizations.',
+                    'technical-collaboration': 'Joint development of technical standards and specifications.',
+                    'research-partnership': 'Collaborative research projects and academic partnerships.',
+                    'regional-alliance': 'Regional cooperation for market development and standards alignment.',
+                    'market-development': 'Joint efforts to expand AI film markets globally.',
+                    'education-training': 'Collaborative educational programs and professional training.'
+                };
+                
+                const description = descriptions[this.value];
+                if (description) {
+                    let hint = this.parentElement.querySelector('.partnership-hint');
+                    if (!hint) {
+                        hint = document.createElement('div');
+                        hint.className = 'partnership-hint';
+                        hint.style.cssText = `
+                            font-size: 0.8rem;
+                            color: rgba(255,255,255,0.7);
+                            margin-top: 0.5rem;
+                            font-style: italic;
+                        `;
+                        this.parentElement.appendChild(hint);
+                    }
+                    hint.textContent = description;
+                }
+            });
+        }
+
+        // Auto-save form data (basic implementation)
+        const formData = {};
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                formData[this.name] = this.value;
+                localStorage.setItem('hkaifc_partnership_form', JSON.stringify(formData));
+            });
+        });
+
+        // Load saved form data
+        const savedData = localStorage.getItem('hkaifc_partnership_form');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            Object.keys(data).forEach(key => {
+                const input = form.querySelector(`[name="${key}"]`);
+                if (input) input.value = data[key];
+            });
+        }
+
+        // Clear saved data after successful submission
+        form.addEventListener('submit', function() {
+            localStorage.removeItem('hkaifc_partnership_form');
+        });
+
+        // Page load animations
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            
+            // Animate hero elements
+            const heroElements = document.querySelectorAll('.hero-text h1, .hero-text p, .global-map, .stat-item');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Add initial styles for animations
+        document.querySelectorAll('.hero-text h1, .hero-text p, .global-map, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+    </script>
+</body>
+</html>

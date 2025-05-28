@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKAIFC Membership - Join the Future of AI Film Industry</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --premium-white: #FFFFFF;
+            --tech-silver: #F5F5F7;
+            --gradient-start: #00F5A0;
+            --gradient-end: #00D9F5;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --authority-gold: #FFD700;
+            --certification-blue: #0066CC;
+            --premium-purple: #6366F1;
+            --elite-dark: #1F2937;
+            --success-green: #10B981;
+            --warning-orange: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .certification-emblem {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .emblem-outer {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .emblem-inner {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--text-primary), var(--certification-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--glass-bg);
+            color: var(--gradient-end);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            background: var(--tech-silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 245, 160, 0.1), rgba(0, 217, 245, 0.1));
+            z-index: -1;
+        }
+
+        .hero-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 30px;
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text-primary), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Membership Tiers */
+        .membership-tiers {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .tiers-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tier-card {
+            background: var(--premium-white);
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .tier-card.featured {
+            border-color: var(--authority-gold);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02));
+        }
+
+        .tier-card.premium {
+            border-color: var(--premium-purple);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(99, 102, 241, 0.02));
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--authority-gold);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0 0 15px 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .tier-badge.premium {
+            background: var(--premium-purple);
+        }
+
+        .tier-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .tier-icon.individual {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .tier-icon.institutional {
+            background: linear-gradient(135deg, var(--certification-blue), var(--premium-purple));
+        }
+
+        .tier-icon.corporate {
+            background: linear-gradient(135deg, var(--warning-orange), var(--authority-gold));
+        }
+
+        .tier-icon.founding {
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+        }
+
+        .tier-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .tier-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .tier-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .tier-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .tier-features li::before {
+            content: '✓';
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 0.1rem;
+        }
+
+        .tier-features li.premium-feature::before {
+            content: '★';
+            color: var(--authority-gold);
+        }
+
+        .tier-features li.exclusive-feature::before {
+            content: '♦';
+            color: var(--premium-purple);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--premium-white);
+            box-shadow: 0 4px 15px rgba(0, 245, 160, 0.3);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            color: var(--premium-white);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, var(--premium-purple), #4F46E5);
+            color: var(--premium-white);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Benefits Comparison */
+        .benefits-comparison {
+            padding: 6rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-table {
+            background: var(--premium-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .grid-header {
+            background: var(--elite-dark);
+            color: white;
+            padding: 1.5rem 1rem;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .grid-header:first-child {
+            text-align: left;
+            background: var(--text-primary);
+        }
+
+        .grid-cell {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            border-right: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .grid-cell:first-child {
+            justify-content: flex-start;
+            text-align: left;
+            font-weight: 500;
+            background: var(--tech-silver);
+        }
+
+        .check-icon {
+            color: var(--success-green);
+            font-size: 1.2rem;
+        }
+
+        .star-icon {
+            color: var(--authority-gold);
+            font-size: 1.2rem;
+        }
+
+        .diamond-icon {
+            color: var(--premium-purple);
+            font-size: 1.2rem;
+        }
+
+        .cross-icon {
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        /* Application Process */
+        .application-process {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            padding: 6rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .stories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: var(--premium-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--gradient-start);
+            opacity: 0.3;
+        }
+
+        .story-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .author-info p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background: var(--tech-silver);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--glass-bg);
+        }
+
+        .faq-answer {
+            background: var(--premium-white);
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--gradient-end);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--premium-white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-start);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-header, .grid-cell {
+                text-align: left;
+                justify-content: flex-start;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="certification-emblem">
+                    <div class="emblem-outer">
+                        <div class="emblem-inner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">HKAIFC</div>
+                    <div class="logo-subtitle">Standards Authority</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#certification">Certification</a>
+                    <a href="#standards">Standards</a>
+                    <a href="#membership" class="active">Membership</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>Join the Future of AI Film Industry</h1>
+            <p>
+                Become part of the global community shaping AI-native film standards. 
+                Access exclusive benefits, participate in industry development, and gain 
+                international recognition through HKAIFC membership.
+            </p>
+        </div>
+    </section>
+
+    <!-- Membership Tiers -->
+    <section class="membership-tiers">
+        <div class="tiers-container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Membership Level</h2>
+                <p class="section-subtitle">
+                    Select the membership tier that best fits your needs and unlock exclusive benefits
+                </p>
+            </div>
+
+            <div class="tiers-grid">
+                <!-- Individual Member -->
+                <div class="tier-card fade-in">
+                    <div class="tier-icon individual">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="tier-title">Individual Member</h3>
+                    <p class="tier-description">Perfect for AI film professionals and practitioners</p>
+                    <div class="tier-price">HK$5,000</div>
+                    <div class="tier-period">per year</div>
+                    
+                    <ul class="tier-features">
+                        <li>Professional certification discounts</li>
+                        <li>Priority training course access</li>
+                        <li>Professional networking platform</li>
+                        <li>Job placement services</li>
+                        <li>Industry reports and insights</li>
+                        <li>Monthly webinar access</li>
+                        <li>Online community forum</li>
+                        <li>Career development guidance</li>
+                    </ul>
+                    
+                    <a href="#apply-individual" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Institutional Member -->
+                <div class="tier-card fade-in">
+                    <div class="tier-icon institutional">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="tier-title">Institutional Member</h3>
+                    <p class="tier-description">For educational institutions and research organizations</p>
+                    <div class="tier-price">HK$50,000</div>
+                    <div class="tier-period">per year</div>
+                    
+                    <ul class="tier-features">
+                        <li>Academic exchange platform access</li>
+                        <li>Talent training cooperation programs</li>
+                        <li>Standards promotion support</li>
+                        <li>30% discount on certification fees</li>
+                        <li>Research collaboration opportunities</li>
+                        <li>Student certification programs</li>
+                        <li>Faculty development workshops</li>
+                        <li>Educational resource library</li>
+                    </ul>
+                    
+                    <a href="#apply-institutional" class="btn btn-primary">
+                        <i class="fas fa-graduation-cap"></i>
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Corporate Member -->
+                <div class="tier-card featured fade-in">
+                    <div class="tier-badge">Most Popular</div>
+                    <div class="tier-icon corporate">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="tier-title">Corporate Member</h3>
+                    <p class="tier-description">For companies engaged in AI film-related business</p>
+                    <div class="tier-price">HK$100,000</div>
+                    <div class="tier-period">per year</div>
+                    
+                    <ul class="tier-features">
+                        <li class="premium-feature">Standards development participation</li>
+                        <li class="premium-feature">20% discount on certification fees</li>
+                        <li>Expert consulting services</li>
+                        <li>Industry report priority access</li>
+                        <li>Business networking events</li>
+                        <li>Marketing collaboration opportunities</li>
+                        <li>Technical advisory support</li>
+                        <li>Priority customer service</li>
+                        <li>Annual conference speaking slots</li>
+                    </ul>
+                    
+                    <a href="#apply-corporate" class="btn btn-gold">
+                        <i class="fas fa-star"></i>
+                        Apply Now
+                    </a>
+                </div>
+
+                <!-- Founding Member -->
+                <div class="tier-card premium fade-in">
+                    <div class="tier-badge premium">Exclusive</div>
+                    <div class="tier-icon founding">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="tier-title">Founding Member</h3>
+                    <p class="tier-description">Exclusive tier for major industry contributors</p>
+                    <div class="tier-price">HK$500,000</div>
+                    <div class="tier-period">per year</div>
+                    
+                    <ul class="tier-features">
+                        <li class="exclusive-feature">Board of Directors seat</li>
+                        <li class="exclusive-feature">Standards development voting rights</li>
+                        <li class="exclusive-feature">Priority certification services</li>
+                        <li class="exclusive-feature">Annual summit hosting rights</li>
+                        <li class="exclusive-feature">40% discount on all services</li>
+                        <li>Executive advisory board access</li>
+                        <li>Strategic partnership opportunities</li>
+                        <li>Global market expansion support</li>
+                        <li>Exclusive founding member network</li>
+                        <li>Brand co-marketing opportunities</li>
+                        <li>5-year commitment benefits</li>
+                    </ul>
+                    
+                    <a href="#apply-founding" class="btn btn-purple">
+                        <i class="fas fa-gem"></i>
+                        Apply Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Comparison -->
+    <section class="benefits-comparison">
+        <div class="comparison-container">
+            <div class="section-header">
+                <h2 class="section-title">Membership Benefits Comparison</h2>
+                <p class="section-subtitle">
+                    Compare features across all membership levels to find the perfect fit
+                </p>
+            </div>
+
+            <div class="comparison-table fade-in">
+                <div class="table-header">
+                    <h3>Complete Benefits Overview</h3>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="grid-header">Benefits</div>
+                    <div class="grid-header">Individual</div>
+                    <div class="grid-header">Institutional</div>
+                    <div class="grid-header">Corporate</div>
+                    <div class="grid-header">Founding</div>
+
+                    <div class="grid-cell">Professional Certification Discounts</div>
+                    <div class="grid-cell"><i class="fas fa-check check-icon"></i></div>
+                    <div class="grid-cell">30%</div>
+                    <div class="grid-cell">20%</div>
+                    <div class="grid-cell">40%</div>
+
+                    <div class="grid-cell">Standards Development Participation</div>
+                    <div class="grid-cell"><i class="fas fa-times cross-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-check check-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-star star-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-gem diamond-icon"></i></div>
+
+                    <div class="grid-cell">Expert Consulting Services</div>
+                    <div class="grid-cell"><i class="fas fa-times cross-icon"></i></div>
+                    <div class="grid-cell">Limited</div>
+                    <div class="grid-cell"><i class="fas fa-check check-icon"></i></div>
+                    <div class="grid-cell">Priority</div>
+
+                    <div class="grid-cell">Board of Directors Seat</div>
+                    <div class="grid-cell"><i class="fas fa-times cross-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-times cross-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-times cross-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-gem diamond-icon"></i></div>
+
+                    <div class="grid-cell">Annual Summit Benefits</div>
+                    <div class="grid-cell">Attendee</div>
+                    <div class="grid-cell">Speaker</div>
+                    <div class="grid-cell">Sponsor</div>
+                    <div class="grid-cell">Host</div>
+
+                    <div class="grid-cell">Industry Reports Access</div>
+                    <div class="grid-cell">Basic</div>
+                    <div class="grid-cell">Standard</div>
+                    <div class="grid-cell">Priority</div>
+                    <div class="grid-cell">Exclusive</div>
+
+                    <div class="grid-cell">Networking Events</div>
+                    <div class="grid-cell">Online</div>
+                    <div class="grid-cell">Regional</div>
+                    <div class="grid-cell">Global</div>
+                    <div class="grid-cell">VIP</div>
+
+                    <div class="grid-cell">Marketing Co-opportunities</div>
+                    <div class="grid-cell"><i class="fas fa-times cross-icon"></i></div>
+                    <div class="grid-cell">Limited</div>
+                    <div class="grid-cell"><i class="fas fa-check check-icon"></i></div>
+                    <div class="grid-cell"><i class="fas fa-star star-icon"></i></div>
+
+                    <div class="grid-cell">Customer Support</div>
+                    <div class="grid-cell">Standard</div>
+                    <div class="grid-cell">Premium</div>
+                    <div class="grid-cell">Priority</div>
+                    <div class="grid-cell">Dedicated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="application-process">
+        <div class="process-container">
+            <div class="section-header">
+                <h2 class="section-title">Simple Application Process</h2>
+                <p class="section-subtitle">
+                    Join HKAIFC in just four easy steps and start enjoying member benefits immediately
+                </p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Choose Your Tier</h3>
+                    <p class="step-description">
+                        Select the membership level that best fits your organization's needs and goals. 
+                        Review benefits and requirements carefully.
+                    </p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Submit Application</h3>
+                    <p class="step-description">
+                        Complete the online application form with required documentation. 
+                        Our team will review your submission within 5-7 business days.
+                    </p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Review & Approval</h3>
+                    <p class="step-description">
+                        Our membership committee evaluates applications based on qualifications 
+                        and alignment with HKAIFC's mission and standards.
+                    </p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Welcome & Onboarding</h3>
+                    <p class="step-description">
+                        Upon approval, receive your membership credentials and access to all 
+                        exclusive benefits. Welcome to the HKAIFC community!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="stories-container">
+            <div class="section-header">
+                <h2 class="section-title">Member Success Stories</h2>
+                <p class="section-subtitle">
+                    Hear from our members about how HKAIFC membership has transformed their AI film journey
+                </p>
+            </div>
+
+            <div class="stories-grid">
+                <div class="story-card fade-in">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="story-quote">
+                        "HKAIFC membership opened doors to international partnerships and helped us achieve 
+                        Level 5 certification for our AI-native film. The networking opportunities alone 
+                        have been invaluable for our growth."
+                    </p>
+                    <div class="story-author">
+                        <div class="author-avatar">JL</div>
+                        <div class="author-info">
+                            <h4>James Liu</h4>
+                            <p>CEO, AI Vision Studios (Corporate Member)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card fade-in">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="story-quote">
+                        "As a founding member, we've been able to shape industry standards from the ground up. 
+                        The strategic advantages and market positioning have been tremendous for our business."
+                    </p>
+                    <div class="story-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Director, Hong Kong AI Film Academy (Founding Member)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card fade-in">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="story-quote">
+                        "The professional development opportunities and certification discounts have 
+                        accelerated my career significantly. HKAIFC membership is essential for any 
+                        serious AI film professional."
+                    </p>
+                    <div class="story-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4>Michael Kumar</h4>
+                            <p>AI Film Director (Individual Member)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card fade-in">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="story-quote">
+                        "Our partnership with HKAIFC has enhanced our research capabilities and 
+                        student opportunities in AI film studies. The academic collaboration 
+                        network is exceptional."
+                    </p>
+                    <div class="story-author">
+                        <div class="author-avatar">DR</div>
+                        <div class="author-info">
+                            <h4>Dr. Rachel Wong</h4>
+                            <p>Professor, Hong Kong University (Institutional Member)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Get answers to common questions about HKAIFC membership
+                </p>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What are the requirements for each membership tier?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Individual members need relevant professional experience or education in AI film. 
+                    Institutional members must be accredited educational or research organizations. 
+                    Corporate members require ≥HK$10 million registered capital and AI film business involvement. 
+                    Founding members need significant industry contributions and 5-year commitment.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How long does the application process take?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Individual and institutional applications typically take 5-7 business days. 
+                    Corporate member applications take 10-15 business days due to additional verification. 
+                    Founding member applications require 15-20 business days for comprehensive review by our board.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I upgrade my membership level later?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can upgrade your membership at any time. The price difference will be prorated 
+                    based on your remaining membership period. Contact our membership team to discuss upgrade options 
+                    and benefits transition.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What happens if my application is not approved?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>If your application is not approved, we'll provide detailed feedback on areas for improvement. 
+                    You can reapply after addressing the identified issues. For founding and corporate memberships, 
+                    we offer consultation calls to help strengthen future applications.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Are there any geographic restrictions for membership?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>HKAIFC membership is open globally. However, some benefits like local networking events 
+                    may be geographically specific. We're expanding our regional presence to serve members worldwide 
+                    with localized support and services.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is the renewal process for membership?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Membership renewal is automatic unless you notify us otherwise. We'll send renewal notices 
+                    60 days before expiration. Members in good standing can renew with simplified documentation. 
+                    Multi-year discounts are available for advance renewals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Shape the Future of AI Film?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Join thousands of industry leaders, innovators, and professionals who are 
+                driving the $100 billion AI-native film revolution.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="#apply-now" class="btn-white">
+                    <i class="fas fa-rocket"></i>
+                    Start Your Application
+                </a>
+                <a href="#consultation" class="btn-white" style="background: transparent; border: 2px solid white; color: white;">
+                    <i class="fas fa-phone"></i>
+                    Schedule Consultation
+                </a>
+            </div>
+            
+            <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Application Process</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-clock"></i>
+                    <span>Fast Approval (5-7 Days)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-globe"></i>
+                    <span>Global Community</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-award"></i>
+                    <span>Exclusive Benefits</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p>&copy; 2025 Hong Kong AI Film Standards Committee. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact</a>
+                <a href="#support">Support</a>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.3rem; font-size: 0.8rem;">
+                    <span style="width: 8px; height: 8px; background: var(--success-green); border-radius: 50%;"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (currentScroll < lastScroll) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+            
+            // Close all other open FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(openAnswer => {
+                if (openAnswer !== answer) {
+                    openAnswer.classList.remove('active');
+                    openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Add hover effects to tier cards
+        document.querySelectorAll('.tier-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Language selector functionality
+        document.querySelector('.language-selector').addEventListener('click', () => {
+            // Show language selection modal (simplified for demo)
+            alert('Language selection feature - 15+ languages supported including:\n\n• English\n• 简体中文\n• 繁體中文\n• 日本語\n• 한국어\n• Français\n• Deutsch\n• Español\n• And more...');
+        });
+
+        // Application button click handlers
+        document.querySelectorAll('a[href^="#apply"]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const membershipType = e.target.href.split('#apply-')[1] || 'general';
+                
+                // Show application modal or redirect to application form
+                showApplicationModal(membershipType);
+            });
+        });
+
+        function showApplicationModal(type) {
+            const typeNames = {
+                'individual': 'Individual Member',
+                'institutional': 'Institutional Member', 
+                'corporate': 'Corporate Member',
+                'founding': 'Founding Member',
+                'now': 'Membership Application'
+            };
+            
+            const typeName = typeNames[type] || 'Membership';
+            
+            alert(`${typeName} Application\n\nThank you for your interest in HKAIFC membership!\n\nYou will be redirected to our secure application portal where you can:\n\n• Complete the application form\n• Upload required documents\n• Make secure payment\n• Track application status\n\nApplication processing time: 5-7 business days\n\nNote: This is a demo - actual application system would open here.`);
+        }
+
+        // Add consultation button handler
+        document.querySelectorAll('a[href="#consultation"]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Schedule a Consultation\n\nOur membership experts are ready to help you choose the right membership tier and answer any questions.\n\nAvailable consultation options:\n\n• Phone consultation (30 minutes)\n• Video call meeting (45 minutes)\n• In-person meeting (Hong Kong)\n• Email correspondence\n\nContact: membership@hkaifc.org\nPhone: +852-3XXX-XXXX\n\nNote: This is a demo - actual booking system would open here.');
+            });
+        });
+
+        // Add scroll-triggered animations for statistics or counters
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const current = Math.floor(progress * (end - start) + start);
+                element.textContent = current.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-background');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Toast notification system
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--success-green)' : 'var(--text-primary)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                max-width: 300px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '1';
+            }, 100);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Show welcome message
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showToast('Welcome to HKAIFC Membership Portal! 🌟', 'success');
+            }, 1000);
+        });
+
+        // Mobile menu functionality
+        if (window.innerWidth <= 768) {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileBtn = document.createElement('button');
+            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileBtn.style.cssText = 'background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer;';
+            
+            document.querySelector('.nav-menu').appendChild(mobileBtn);
+            navLinks.style.display = 'none';
+            
+            mobileBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'none' ? 'flex' : 'none';
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = 'var(--glass-bg)';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.backdropFilter = 'blur(20px)';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

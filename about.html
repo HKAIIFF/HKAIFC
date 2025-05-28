@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - HKAIFC | Hong Kong AI Film Standards Committee</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --premium-white: #FFFFFF;
+            --tech-silver: #F5F5F7;
+            --gradient-start: #00F5A0;
+            --gradient-end: #00D9F5;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --authority-gold: #FFD700;
+            --certification-blue: #0066CC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .certification-emblem {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .emblem-outer {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .emblem-outer::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border: 3px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -8px;
+            left: -8px;
+            opacity: 0.6;
+        }
+
+        .emblem-outer::after {
+            content: '';
+            position: absolute;
+            width: 76px;
+            height: 76px;
+            border: 1px solid var(--authority-gold);
+            border-radius: 50%;
+            top: -11px;
+            left: -11px;
+            opacity: 0.3;
+        }
+
+        .emblem-inner {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+            position: relative;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo-main {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--text-primary), var(--certification-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--glass-bg);
+            color: var(--gradient-end);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            background: var(--tech-silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .language-selector:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 245, 160, 0.3);
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 245, 160, 0.1), rgba(0, 217, 245, 0.1));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--gradient-end);
+            text-decoration: none;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .authority-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .indicator i {
+            color: var(--authority-gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card, .vision-card {
+            background: var(--premium-white);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Organization Structure */
+        .org-structure {
+            background: var(--tech-silver);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .structure-level {
+            background: var(--premium-white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .structure-level:hover {
+            transform: translateY(-5px);
+        }
+
+        .level-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .level-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .level-list {
+            list-style: none;
+        }
+
+        .level-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .level-list li:last-child {
+            border-bottom: none;
+        }
+
+        .level-list li::before {
+            content: '•';
+            color: var(--gradient-start);
+            font-weight: bold;
+        }
+
+        /* Positioning & Authority */
+        .positioning {
+            background: var(--premium-white);
+            padding: 4rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .positioning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .positioning-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .positioning-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .positioning-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .positioning-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .positioning-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Statistics */
+        .stats-section {
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Development Roadmap */
+        .roadmap {
+            background: var(--tech-silver);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--premium-white);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 15px solid transparent;
+            border-left-color: var(--premium-white);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 15px solid transparent;
+            border-right-color: var(--premium-white);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 245, 160, 0.3);
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .timeline-goals {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-goals li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-goals li::before {
+            content: '🎯';
+            font-size: 0.9rem;
+        }
+
+        /* Contact Information */
+        .contact-section {
+            background: var(--premium-white);
+            padding: 4rem;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .contact-info {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: var(--gradient-end);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--gradient-end);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: var(--premium-white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-start);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .certification-indicators {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .cert-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient-start);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                padding: 2rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                margin: 0;
+            }
+
+            .timeline-item .timeline-content::before {
+                left: -15px !important;
+                right: auto !important;
+                border: 15px solid transparent !important;
+                border-right-color: var(--premium-white) !important;
+                border-left-color: transparent !important;
+            }
+
+            .timeline-year {
+                left: 30px;
+                width: 60px;
+                height: 60px;
+                font-size: 1rem;
+            }
+
+            .authority-indicators {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .positioning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="certification-emblem">
+                    <div class="emblem-outer">
+                        <div class="emblem-inner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">HKAIFC</div>
+                    <div class="logo-subtitle">Standards Authority</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="#certification">Certification</a>
+                    <a href="#standards">Standards</a>
+                    <a href="#membership">Membership</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>About Us</span>
+            </div>
+            
+            <h1 class="page-title">About HKAIFC</h1>
+            <p class="page-subtitle">
+                The authoritative standards development and certification organization for the global AI-native film industry
+            </p>
+            
+            <div class="authority-indicators">
+                <div class="indicator">
+                    <i class="fas fa-university"></i>
+                    <span>Government Supported</span>
+                </div>
+                <div class="indicator">
+                    <i class="fas fa-globe"></i>
+                    <span>International Recognition</span>
+                </div>
+                <div class="indicator">
+                    <i class="fas fa-award"></i>
+                    <span>ISO Aligned Standards</span>
+                </div>
+                <div class="indicator">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Blockchain Verified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Mission & Vision -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Mission & Vision</h2>
+                <p class="section-subtitle">
+                    Leading the transformation of the AI film industry through authoritative standards and certification
+                </p>
+            </div>
+            
+            <div class="mission-vision">
+                <div class="mission-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text">
+                        To become the authoritative institution for AI-native film industry standards development, 
+                        certification services, and technological innovation in the Asia-Pacific region, promoting 
+                        standardized development of AI film technology and fostering a healthy and prosperous 
+                        industry ecosystem.
+                    </p>
+                </div>
+                
+                <div class="vision-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-telescope"></i>
+                    </div>
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-text">
+                        By 2030, to establish a globally comprehensive AI film standards system, become an 
+                        industry-recognized authoritative certification body, and help the AI-native film 
+                        industry create market value exceeding $100 billion through innovative standards 
+                        and professional certification services.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organizational Positioning -->
+        <section class="section">
+            <div class="positioning">
+                <div class="section-header">
+                    <h2 class="section-title">Organizational Positioning</h2>
+                    <p class="section-subtitle">
+                        Four core characteristics that define HKAIFC's unique position in the global AI film ecosystem
+                    </p>
+                </div>
+                
+                <div class="positioning-grid">
+                    <div class="positioning-card animate-on-scroll">
+                        <div class="positioning-icon">🏛</div>
+                        <h3 class="positioning-title">Authority</h3>
+                        <p class="positioning-text">
+                            Official standards development organization supported by the Hong Kong SAR Government, 
+                            providing authoritative certification and industry guidance.
+                        </p>
+                    </div>
+                    
+                    <div class="positioning-card animate-on-scroll">
+                        <div class="positioning-icon">🌏</div>
+                        <h3 class="positioning-title">International</h3>
+                        <p class="positioning-text">
+                            Standards certification services for global markets with partnerships across 
+                            international organizations and mutual recognition agreements.
+                        </p>
+                    </div>
+                    
+                    <div class="positioning-card animate-on-scroll">
+                        <div class="positioning-icon">🔬</div>
+                        <h3 class="positioning-title">Technical</h3>
+                        <p class="positioning-text">
+                            Professional assessment system based on cutting-edge AI technology with 
+                            comprehensive 5-dimensional evaluation framework.
+                        </p>
+                    </div>
+                    
+                    <div class="positioning-card animate-on-scroll">
+                        <div class="positioning-icon">🤝</div>
+                        <h3 class="positioning-title">Open</h3>
+                        <p class="positioning-text">
+                            Multi-party participatory ecosystem cooperation platform fostering collaboration 
+                            between industry, academia, and government stakeholders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Structure -->
+        <section class="section">
+            <div class="org-structure">
+                <div class="section-header">
+                    <h2 class="section-title">Organization Structure</h2>
+                    <p class="section-subtitle">
+                        Comprehensive governance structure ensuring professional standards development and certification
+                    </p>
+                </div>
+                
+                <div class="structure-grid">
+                    <div class="structure-level animate-on-scroll">
+                        <div class="level-title">
+                            <div class="level-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            Board of Directors
+                        </div>
+                        <ul class="level-list">
+                            <li>Chairman (1 position)</li>
+                            <li>Vice Chairman (2 positions)</li>
+                            <li>Executive Directors (5 positions)</li>
+                            <li>Independent Directors (3 positions)</li>
+                            <li>Advisory Directors (5 positions)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="structure-level animate-on-scroll">
+                        <div class="level-title">
+                            <div class="level-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            Executive Committee
+                        </div>
+                        <ul class="level-list">
+                            <li>Secretary-General</li>
+                            <li>Deputy Secretary-General (2 positions)</li>
+                            <li>Chief Technology Officer</li>
+                            <li>Chief Certification Officer</li>
+                            <li>Chief International Affairs Officer</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="structure-level animate-on-scroll">
+                        <div class="level-title">
+                            <div class="level-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            Technical Standards Committee
+                        </div>
+                        <ul class="level-list">
+                            <li>AI Technology Standards Group</li>
+                            <li>Film Production Standards Group</li>
+                            <li>User Experience Standards Group</li>
+                            <li>Safety and Ethics Standards Group</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="structure-level animate-on-scroll">
+                        <div class="level-title">
+                            <div class="level-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            Certification Assessment Committee
+                        </div>
+                        <ul class="level-list">
+                            <li>Works Certification Assessment Group</li>
+                            <li>Professional Competency Certification Group</li>
+                            <li>Institutional Qualification Certification Group</li>
+                            <li>Quality Supervision Group</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="structure-level animate-on-scroll">
+                        <div class="level-title">
+                            <div class="level-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            International Cooperation Committee
+                        </div>
+                        <ul class="level-list">
+                            <li>Asia-Pacific Cooperation Group</li>
+                            <li>Europe-America Cooperation Group</li>
+                            <li>Standards Mutual Recognition Group</li>
+                            <li>Academic Exchange Group</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Statistics -->
+        <section class="section stats-section">
+            <div class="section-header">
+                <h2 class="section-title">Key Achievements & Projections</h2>
+                <p class="section-subtitle">
+                    Driving industry transformation through measurable impact and ambitious growth targets
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-value">$100B</div>
+                    <div class="stat-label">Projected Market Value by 2030</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Industry Standards Developed</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Certification Dimensions</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Global Languages Supported</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">International Partners</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-value">100K+</div>
+                    <div class="stat-label">Projected Certified Professionals by 2027</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Roadmap -->
+        <section class="section">
+            <div class="roadmap">
+                <div class="section-header">
+                    <h2 class="section-title">Development Roadmap</h2>
+                    <p class="section-subtitle">
+                        Strategic three-year plan to establish global leadership in AI film standards
+                    </p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Foundation Building Year</h3>
+                            <p class="timeline-text">
+                                Establishing organizational infrastructure, developing core standards, and launching certification services.
+                            </p>
+                            <ul class="timeline-goals">
+                                <li>Complete committee organizational structure</li>
+                                <li>Release first batch of 10 core technical standards</li>
+                                <li>Develop 10 founding members and 50 corporate members</li>
+                                <li>Complete 100 work certifications and 500 professional certifications</li>
+                                <li>Establish Hong Kong headquarters office</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Expansion & Development Year</h3>
+                            <p class="timeline-text">
+                                Scaling operations, enhancing technology platforms, and expanding international presence.
+                            </p>
+                            <ul class="timeline-goals">
+                                <li>Release complete standards system (50 standards)</li>
+                                <li>Develop 200 corporate and 100 institutional members</li>
+                                <li>Complete 500 work certifications and 2,000 professional certifications</li>
+                                <li>Establish 3 overseas cooperation centers</li>
+                                <li>Launch AI-assisted assessment system</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-year">2027</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Internationalization Year</h3>
+                            <p class="timeline-text">
+                                Achieving global recognition and establishing comprehensive international cooperation network.
+                            </p>
+                            <ul class="timeline-goals">
+                                <li>Establish branches in 5 countries/regions</li>
+                                <li>Sign cooperation agreements with 10 international organizations</li>
+                                <li>Develop 1,000 member institutions globally</li>
+                                <li>Complete 2,000 work certifications and 10,000 professional certifications</li>
+                                <li>Launch next-generation AI-Native 3.0 standards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="section">
+            <div class="contact-section">
+                <div class="section-header">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-subtitle">
+                        Connect with our team for certification, membership, and partnership opportunities
+                    </p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="contact-title">Headquarters</h3>
+                        <div class="contact-info">
+                            <strong>Hong Kong AI Film Standards Committee</strong><br>
+                            88/F, IFC Two, Central<br>
+                            Hong Kong SAR<br><br>
+                            <strong>Business Hours:</strong><br>
+                            Monday - Friday: 9:00-18:00 HKT<br>
+                            24/7 Digital Services Available
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="contact-title">Email Services</h3>
+                        <div class="contact-info">
+                            <strong>General Inquiries:</strong><br>
+                            <a href="mailto:info@hkaifc.org">info@hkaifc.org</a><br><br>
+                            
+                            <strong>Certification Services:</strong><br>
+                            <a href="mailto:certification@hkaifc.org">certification@hkaifc.org</a><br><br>
+                            
+                            <strong>Membership Services:</strong><br>
+                            <a href="mailto:membership@hkaifc.org">membership@hkaifc.org</a><br><br>
+                            
+                            <strong>International Cooperation:</strong><br>
+                            <a href="mailto:international@hkaifc.org">international@hkaifc.org</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card animate-on-scroll">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="contact-title">Support Services</h3>
+                        <div class="contact-info">
+                            <strong>Technical Support:</strong><br>
+                            <a href="mailto:tech@hkaifc.org">tech@hkaifc.org</a><br><br>
+                            
+                            <strong>Media Relations:</strong><br>
+                            <a href="mailto:press@hkaifc.org">press@hkaifc.org</a><br><br>
+                            
+                            <strong>Marketing & Partnerships:</strong><br>
+                            <a href="mailto:marketing@hkaifc.org">marketing@hkaifc.org</a><br><br>
+                            
+                            <strong>24/7 Online Support:</strong><br>
+                            Available through our website portal
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Join the Future of AI Film Industry</h2>
+            <p class="cta-text">
+                Partner with HKAIFC to shape the future of AI-native film standards and drive industry innovation. 
+                Whether you're seeking certification, membership, or partnership opportunities, we're here to help.
+            </p>
+            <div class="cta-buttons">
+                <a href="#membership" class="btn btn-white">
+                    <i class="fas fa-users"></i>
+                    Become a Member
+                </a>
+                <a href="#certification" class="btn btn-outline">
+                    <i class="fas fa-certificate"></i>
+                    Get Certified
+                </a>
+                <a href="mailto:info@hkaifc.org" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--authority-gold), #B8860B); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-certificate" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0;">HKAIFC</h3>
+                            <div style="font-size: 0.8rem; color: var(--authority-gold);">Official Standards Authority</div>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.6; margin-bottom: 1.5rem;">
+                        The authoritative standards development and certification organization for the global AI-native film industry.
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="background: rgba(255, 255, 255, 0.1); padding: 0.75rem; border-radius: 10px; color: white; text-decoration: none;">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" style="background: rgba(255, 255, 255, 0.1); padding: 0.75rem; border-radius: 10px; color: white; text-decoration: none;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="background: rgba(255, 255, 255, 0.1); padding: 0.75rem; border-radius: 10px; color: white; text-decoration: none;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#work-certification">Work Certification</a></li>
+                        <li><a href="#professional-cert">Professional Certification</a></li>
+                        <li><a href="#institutional">Institutional Membership</a></li>
+                        <li><a href="#standards-dev">Standards Development</a></li>
+                        <li><a href="#training">Education & Training</a></li>
+                        <li><a href="#consultation">Expert Consultation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul class="footer-links">
+                        <li><a href="#mission">Mission & Vision</a></li>
+                        <li><a href="#governance">Organization Structure</a></li>
+                        <li><a href="#positioning">Our Positioning</a></li>
+                        <li><a href="#roadmap">Development Roadmap</a></li>
+                        <li><a href="#partnerships">International Partners</a></li>
+                        <li><a href="#careers">Career Opportunities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#standards-library">Standards Library</a></li>
+                        <li><a href="#white-papers">White Papers</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#support">Support Center</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div style="color: rgba(255, 255, 255, 0.7); line-height: 1.8;">
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: white;">Email Services</strong><br>
+                            <a href="mailto:info@hkaifc.org" style="color: var(--gradient-start); text-decoration: none;">info@hkaifc.org</a><br>
+                            <a href="mailto:certification@hkaifc.org" style="color: var(--gradient-start); text-decoration: none;">certification@hkaifc.org</a><br>
+                            <a href="mailto:international@hkaifc.org" style="color: var(--gradient-start); text-decoration: none;">international@hkaifc.org</a>
+                        </div>
+                        <div>
+                            <strong style="color: white;">Address</strong><br>
+                            88/F, IFC Two, Central<br>
+                            Hong Kong SAR<br><br>
+                            <strong style="color: white;">Business Hours</strong><br>
+                            Mon-Fri: 9:00-18:00 HKT<br>
+                            24/7 Digital Services
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p style="margin: 0; color: rgba(255, 255, 255, 0.7);">
+                        © 2025 Hong Kong AI Film Standards Committee. All rights reserved.
+                    </p>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="#privacy" style="color: rgba(255, 255, 255, 0.5); text-decoration: none; margin-right: 1rem;">Privacy Policy</a>
+                        <a href="#terms" style="color: rgba(255, 255, 255, 0.5); text-decoration: none; margin-right: 1rem;">Terms of Service</a>
+                        <a href="#legal" style="color: rgba(255, 255, 255, 0.5); text-decoration: none;">Legal Notice</a>
+                    </div>
+                </div>
+
+                <div class="certification-indicators">
+                    <div class="cert-badge">
+                        <span class="cert-dot"></span>
+                        <span>ISO 9001 Certified</span>
+                    </div>
+                    <div class="cert-badge">
+                        <span class="cert-dot"></span>
+                        <span>Blockchain Verified</span>
+                    </div>
+                    <div class="cert-badge">
+                        <span class="cert-dot"></span>
+                        <span>Government Backed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (currentScroll < lastScroll) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Statistics counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Trigger counter animations when statistics section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValues = entry.target.querySelectorAll('.stat-value');
+                    statValues.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('+')) {
+                            const num = parseInt(text);
+                            if (num) animateCounter(stat, num);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Language selector functionality
+        const languageSelector = document.querySelector('.language-selector');
+        if (languageSelector) {
+            languageSelector.addEventListener('click', function(e) {
+                e.preventDefault();
+                showToast('Language selection feature available on main site');
+            });
+        }
+
+        // Toast notification system
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--text-primary);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '1';
+            }, 100);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Mobile menu functionality
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks && !document.querySelector('.mobile-menu-btn')) {
+                    const mobileBtn = document.createElement('button');
+                    mobileBtn.className = 'mobile-menu-btn';
+                    mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        color: var(--text-primary);
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    navLinks.style.display = 'none';
+                    document.querySelector('.nav-menu').appendChild(mobileBtn);
+                    
+                    mobileBtn.addEventListener('click', () => {
+                        navLinks.style.display = navLinks.style.display === 'none' ? 'flex' : 'none';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.right = '0';
+                        navLinks.style.background = 'var(--glass-bg)';
+                        navLinks.style.backdropFilter = 'blur(20px)';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.padding = '1rem';
+                        navLinks.style.zIndex = '1000';
+                    });
+                }
+            }
+        };
+
+        // Initialize mobile menu
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+
+        // Page load animations
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            showToast('Welcome to HKAIFC About Page');
+        });
+    </script>
+</body>
+</html>

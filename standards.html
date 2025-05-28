@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standards System - HKAIFC | Hong Kong AI Film Standards Committee</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --premium-white: #FFFFFF;
+            --tech-silver: #F5F5F7;
+            --gradient-start: #00F5A0;
+            --gradient-end: #00D9F5;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --authority-gold: #FFD700;
+            --certification-blue: #0066CC;
+            --standards-purple: #6B46C1;
+            --technical-orange: #F59E0B;
+            --quality-green: #10B981;
+            --innovation-red: #EF4444;
+            --management-indigo: #3B82F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .certification-emblem {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .emblem-outer {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--authority-gold), #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .emblem-inner {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--authority-gold);
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .logo-main {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--text-primary), var(--certification-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: var(--glass-bg);
+            color: var(--gradient-end);
+        }
+
+        .nav-links a.active {
+            color: var(--gradient-start);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--gradient-start);
+            border-radius: 50%;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            background: var(--tech-silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .language-selector:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 245, 160, 0.3);
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.1), rgba(0, 217, 245, 0.1));
+            z-index: -1;
+        }
+
+        .hero-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 25px;
+            max-width: 1000px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--standards-purple), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Standards Overview */
+        .standards-overview {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .standards-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--premium-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-start);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:nth-child(2)::before { background: var(--technical-orange); }
+        .category-card:nth-child(3)::before { background: var(--quality-green); }
+        .category-card:nth-child(4)::before { background: var(--management-indigo); }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card:nth-child(2) .category-icon {
+            background: linear-gradient(135deg, var(--technical-orange), #F97316);
+        }
+
+        .category-card:nth-child(3) .category-icon {
+            background: linear-gradient(135deg, var(--quality-green), #059669);
+        }
+
+        .category-card:nth-child(4) .category-icon {
+            background: linear-gradient(135deg, var(--management-indigo), #2563EB);
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .category-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .standards-count {
+            display: inline-block;
+            background: var(--tech-silver);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .category-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .category-features li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .category-features li::before {
+            content: '✓';
+            color: var(--gradient-start);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Detailed Standards */
+        .detailed-standards {
+            padding: 6rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .standards-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            border: none;
+            background: white;
+            color: var(--text-secondary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 245, 160, 0.3);
+        }
+
+        .tab-button:hover:not(.active) {
+            background: var(--glass-bg);
+            color: var(--text-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .standard-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--gradient-start);
+        }
+
+        .standard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .standard-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .standard-id {
+            background: var(--gradient-start);
+            color: white;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .standard-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .standard-specs {
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.9rem;
+        }
+
+        .spec-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .standard-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .standard-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--quality-green);
+            color: white;
+        }
+
+        /* Implementation Guide */
+        .implementation-guide {
+            padding: 6rem 2rem;
+            background: var(--premium-white);
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-features {
+            list-style: none;
+        }
+
+        .step-features li {
+            padding: 0.2rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .step-features li::before {
+            content: '→';
+            color: var(--gradient-start);
+            font-weight: bold;
+        }
+
+        /* International Alignment */
+        .international-alignment {
+            padding: 6rem 2rem;
+            background: var(--tech-silver);
+        }
+
+        .alignment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .alignment-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .alignment-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .org-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .org-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .org-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .alignment-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--quality-green);
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--standards-purple), var(--gradient-end));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--standards-purple);
+            font-weight: 600;
+        }
+
+        .btn-white:hover {
+            background: var(--tech-silver);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--standards-purple);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .stats-row {
+                gap: 1.5rem;
+            }
+
+            .standards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .standards-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="certification-emblem">
+                    <div class="emblem-outer">
+                        <div class="emblem-inner">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">HKAIFC</div>
+                    <div class="logo-subtitle">Standards Authority</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#certification">Certification</a>
+                    <a href="#standards" class="active">Standards</a>
+                    <a href="#membership">Membership</a>
+                    <a href="#news">News</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>AI Film Industry Standards System</h1>
+            <div class="subtitle">Comprehensive • Scientific • Internationally Aligned</div>
+            <p>
+                HKAIFC has developed a complete set of industry standards covering AI algorithm specifications, 
+                content production guidelines, quality assessment frameworks, and management protocols. 
+                Our standards are designed to promote innovation while ensuring ethical and responsible development.
+            </p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Industry Standards</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Standard Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">International Partners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">ISO</div>
+                    <div class="stat-label">Aligned Framework</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards Overview -->
+    <section class="standards-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Standards Framework</h2>
+                <p class="section-subtitle">
+                    Four comprehensive categories covering all aspects of AI film development and production
+                </p>
+            </div>
+            
+            <div class="standards-categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="category-title">Technical Standards</h3>
+                    <div class="standards-count">15 Standards</div>
+                    <p class="category-description">
+                        Comprehensive technical specifications for AI algorithms, system performance, 
+                        data security, and interactive response technologies.
+                    </p>
+                    <ul class="category-features">
+                        <li>AI Content Generation Algorithms</li>
+                        <li>Interactive Response Technology</li>
+                        <li>Data Security & Privacy Protection</li>
+                        <li>System Performance Requirements</li>
+                        <li>Multi-platform Compatibility</li>
+                    </ul>
+                    <a href="#technical" class="btn btn-outline">
+                        <i class="fas fa-code"></i>
+                        View Technical Standards
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="category-title">Content Production Standards</h3>
+                    <div class="standards-count">12 Standards</div>
+                    <p class="category-description">
+                        Guidelines for AI-native content creation, interactive experience design, 
+                        and narrative structure development.
+                    </p>
+                    <ul class="category-features">
+                        <li>AI-Native Content Creation</li>
+                        <li>Interactive Experience Design</li>
+                        <li>Character Development Guidelines</li>
+                        <li>Narrative Structure Standards</li>
+                        <li>Accessibility Requirements</li>
+                    </ul>
+                    <a href="#content" class="btn btn-outline">
+                        <i class="fas fa-video"></i>
+                        View Content Standards
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="category-title">Quality Assessment Standards</h3>
+                    <div class="standards-count">10 Standards</div>
+                    <p class="category-description">
+                        Systematic evaluation frameworks for content quality, system performance, 
+                        and user experience measurement.
+                    </p>
+                    <ul class="category-features">
+                        <li>Content Quality Evaluation</li>
+                        <li>System Performance Testing</li>
+                        <li>User Experience Assessment</li>
+                        <li>Security Testing Protocols</li>
+                        <li>Compatibility Verification</li>
+                    </ul>
+                    <a href="#quality" class="btn btn-outline">
+                        <i class="fas fa-chart-line"></i>
+                        View Quality Standards
+                    </a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="category-title">Management Standards</h3>
+                    <div class="standards-count">13 Standards</div>
+                    <p class="category-description">
+                        Project management frameworks, intellectual property protection, 
+                        and industry governance protocols.
+                    </p>
+                    <ul class="category-features">
+                        <li>AI Film Project Management</li>
+                        <li>IP Protection & Licensing</li>
+                        <li>Team Collaboration Protocols</li>
+                        <li>Risk Management Systems</li>
+                        <li>Quality Control Processes</li>
+                    </ul>
+                    <a href="#management" class="btn btn-outline">
+                        <i class="fas fa-tasks"></i>
+                        View Management Standards
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Standards -->
+    <section class="detailed-standards">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Detailed Standards Specifications</h2>
+                <p class="section-subtitle">
+                    Comprehensive technical specifications and implementation guidelines
+                </p>
+            </div>
+            
+            <div class="standards-tabs">
+                <button class="tab-button active" data-tab="technical">
+                    <i class="fas fa-microchip"></i>
+                    Technical Standards
+                </button>
+                <button class="tab-button" data-tab="content">
+                    <i class="fas fa-film"></i>
+                    Content Standards
+                </button>
+                <button class="tab-button" data-tab="quality">
+                    <i class="fas fa-star"></i>
+                    Quality Standards
+                </button>
+                <button class="tab-button" data-tab="management">
+                    <i class="fas fa-cogs"></i>
+                    Management Standards
+                </button>
+            </div>
+            
+            <!-- Technical Standards Tab -->
+            <div class="tab-content active" id="technical">
+                <div class="standards-grid">
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-T001</div>
+                            <div class="standard-title">AI Content Generation Algorithm Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Generation Quality</span>
+                                <span class="spec-value">PSNR≥35dB, SSIM≥0.95</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Real-time Performance</span>
+                                <span class="spec-value">Response≤100ms</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Multimodal Fusion</span>
+                                <span class="spec-value">Sync Error≤40ms</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Personalization</span>
+                                <span class="spec-value">Satisfaction≥80%</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Defines technical requirements for AI content generation algorithms including 
+                            quality metrics, performance benchmarks, and personalization capabilities.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-T002</div>
+                            <div class="standard-title">Interactive Response Technology Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Response Time</span>
+                                <span class="spec-value">≤100ms</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Concurrent Users</span>
+                                <span class="spec-value">≥10,000</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">System Availability</span>
+                                <span class="spec-value">≥99.9%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Recovery Time</span>
+                                <span class="spec-value">≤5 minutes</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Specifications for interactive response systems including latency requirements, 
+                            scalability metrics, and reliability standards.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-T003</div>
+                            <div class="standard-title">Data Security & Privacy Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Encryption</span>
+                                <span class="spec-value">AES-256</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Privacy Protection</span>
+                                <span class="spec-value">Differential Privacy</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Access Control</span>
+                                <span class="spec-value">Role-based RBAC</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Audit Logging</span>
+                                <span class="spec-value">Complete Records</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Comprehensive data security and privacy protection requirements including 
+                            encryption standards, access controls, and audit mechanisms.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-T004</div>
+                            <div class="standard-title">System Performance Requirements</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Load Capacity</span>
+                                <span class="spec-value">Peak Load Support</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Scalability</span>
+                                <span class="spec-value">Horizontal Scaling</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Compatibility</span>
+                                <span class="spec-value">Multi-platform ≥95%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Testing Suite</span>
+                                <span class="spec-value">Standardized Tests</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Performance benchmarks and testing requirements for AI film systems including 
+                            load testing, scalability, and compatibility standards.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Standards Tab -->
+            <div class="tab-content" id="content">
+                <div class="standards-grid">
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-C001</div>
+                            <div class="standard-title">AI-Native Content Creation Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Ending Branches</span>
+                                <span class="spec-value">≥10³ Variations</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Character Consistency</span>
+                                <span class="spec-value">≥90%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Logic Integrity</span>
+                                <span class="spec-value">≥95%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Narrative Structure</span>
+                                <span class="spec-value">Three-act ≥90%</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Guidelines for creating AI-native content including plot generation, 
+                            character development, worldview construction, and narrative structure.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-C002</div>
+                            <div class="standard-title">Interactive Experience Design Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">UI Usability</span>
+                                <span class="spec-value">Score ≥85 points</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Learning Time</span>
+                                <span class="spec-value">≤10 minutes</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Platform Compatibility</span>
+                                <span class="spec-value">≥95%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Accessibility</span>
+                                <span class="spec-value">WCAG 2.1 AA</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Standards for designing interactive experiences including user interface design, 
+                            interaction logic, platform adaptation, and accessibility requirements.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-C003</div>
+                            <div class="standard-title">Narrative Structure Guidelines</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Story Coherence</span>
+                                <span class="spec-value">≥90%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Branching Paths</span>
+                                <span class="spec-value">Multiple Endings</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Character Arc</span>
+                                <span class="spec-value">Development Tracking</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Pacing Control</span>
+                                <span class="spec-value">Adaptive Timing</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Guidelines for narrative structure in AI films including story coherence, 
+                            branching narratives, character development, and pacing control.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-C004</div>
+                            <div class="standard-title">Content Quality Assurance</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Content Review</span>
+                                <span class="spec-value">Multi-stage Process</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Cultural Sensitivity</span>
+                                <span class="spec-value">Global Standards</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Age Appropriateness</span>
+                                <span class="spec-value">Rating System</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Ethical Guidelines</span>
+                                <span class="spec-value">Compliance Required</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Quality assurance protocols for AI-generated content including content review 
+                            processes, cultural sensitivity checks, and ethical compliance.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quality Standards Tab -->
+            <div class="tab-content" id="quality">
+                <div class="standards-grid">
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-Q001</div>
+                            <div class="standard-title">Content Quality Assessment Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Technical Quality</span>
+                                <span class="spec-value">Multi-dimensional Scoring</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Artistic Value</span>
+                                <span class="spec-value">Expert Panel Review</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">User Experience</span>
+                                <span class="spec-value">Testing + Analytics</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Commercial Value</span>
+                                <span class="spec-value">Market Analysis</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Comprehensive evaluation framework for content quality including technical 
+                            assessment, artistic evaluation, user experience measurement, and commercial analysis.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-Q002</div>
+                            <div class="standard-title">System Performance Assessment Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Benchmark Testing</span>
+                                <span class="spec-value">Standardized Suite</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Load Testing</span>
+                                <span class="spec-value">Peak Load Capacity</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Security Testing</span>
+                                <span class="spec-value">Vulnerability + Penetration</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Compatibility Testing</span>
+                                <span class="spec-value">Multi-device Verification</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Performance assessment protocols including benchmark testing, load testing, 
+                            security evaluation, and compatibility verification across platforms.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-Q003</div>
+                            <div class="standard-title">User Experience Evaluation Framework</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Usability Testing</span>
+                                <span class="spec-value">Task-based Assessment</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Accessibility Check</span>
+                                <span class="spec-value">WCAG Compliance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Engagement Metrics</span>
+                                <span class="spec-value">Behavioral Analytics</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Satisfaction Survey</span>
+                                <span class="spec-value">User Feedback Collection</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Comprehensive user experience evaluation including usability testing, 
+                            accessibility compliance, engagement measurement, and satisfaction assessment.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-Q004</div>
+                            <div class="standard-title">Innovation Assessment Criteria</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Technical Innovation</span>
+                                <span class="spec-value">Breakthrough Assessment</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Patent Analysis</span>
+                                <span class="spec-value">IP Portfolio Review</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Market Uniqueness</span>
+                                <span class="spec-value">Competitive Analysis</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Technology Readiness</span>
+                                <span class="spec-value">TRL Assessment</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Innovation evaluation framework including technical breakthrough assessment, 
+                            patent analysis, market uniqueness evaluation, and technology readiness levels.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Management Standards Tab -->
+            <div class="tab-content" id="management">
+                <div class="standards-grid">
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-M001</div>
+                            <div class="standard-title">AI Film Project Management Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Lifecycle Management</span>
+                                <span class="spec-value">Standardized Process</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Team Collaboration</span>
+                                <span class="spec-value">Agile Methodology</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Risk Management</span>
+                                <span class="spec-value">Assessment + Strategy</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Quality Control</span>
+                                <span class="spec-value">Multi-stage Gates</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Project management framework for AI film projects including lifecycle management, 
+                            team collaboration protocols, risk assessment, and quality control processes.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-IP001</div>
+                            <div class="standard-title">AI Creation Copyright Protection Standards</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Copyright Definition</span>
+                                <span class="spec-value">Clear Ownership</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Creator Rights</span>
+                                <span class="spec-value">Attribution + Revenue</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Licensing Standards</span>
+                                <span class="spec-value">Standardized Agreements</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Dispute Resolution</span>
+                                <span class="spec-value">Arbitration + Mediation</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Intellectual property protection framework including copyright definitions, 
+                            creator rights protection, licensing standards, and dispute resolution mechanisms.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-M002</div>
+                            <div class="standard-title">Quality Management System</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">QMS Framework</span>
+                                <span class="spec-value">ISO 9001 Aligned</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Process Control</span>
+                                <span class="spec-value">Documented Procedures</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Continuous Improvement</span>
+                                <span class="spec-value">PDCA Cycle</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Audit Requirements</span>
+                                <span class="spec-value">Regular Reviews</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Quality management system requirements including process control, 
+                            continuous improvement protocols, audit procedures, and ISO alignment.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-id">HKAIFC-M003</div>
+                            <div class="standard-title">Ethics & Compliance Framework</div>
+                        </div>
+                        <div class="standard-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Ethical Guidelines</span>
+                                <span class="spec-value">AI Ethics Standards</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Compliance Monitoring</span>
+                                <span class="spec-value">Regular Assessment</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Social Responsibility</span>
+                                <span class="spec-value">Impact Evaluation</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Transparency Reporting</span>
+                                <span class="spec-value">Public Disclosure</span>
+                            </div>
+                        </div>
+                        <p class="standard-description">
+                            Ethics and compliance framework including AI ethics guidelines, 
+                            compliance monitoring, social responsibility assessment, and transparency requirements.
+                        </p>
+                        <span class="standard-status">Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Guide -->
+    <section class="implementation-guide">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Implementation Guide</h2>
+                <p class="section-subtitle">
+                    Step-by-step guidance for implementing HKAIFC standards in your organization
+                </p>
+            </div>
+            
+            <div class="guide-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Standards Assessment</h3>
+                    <p class="step-description">
+                        Evaluate your current processes and identify which HKAIFC standards 
+                        are applicable to your organization and projects.
+                    </p>
+                    <ul class="step-features">
+                        <li>Current state analysis</li>
+                        <li>Gap identification</li>
+                        <li>Priority ranking</li>
+                        <li>Implementation roadmap</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Training & Education</h3>
+                    <p class="step-description">
+                        Provide comprehensive training to your team on relevant standards 
+                        and implementation best practices.
+                    </p>
+                    <ul class="step-features">
+                        <li>Standards training programs</li>
+                        <li>Certification preparation</li>
+                        <li>Best practices workshops</li>
+                        <li>Expert consultation</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Process Integration</h3>
+                    <p class="step-description">
+                        Integrate HKAIFC standards into your existing workflows 
+                        and development processes.
+                    </p>
+                    <ul class="step-features">
+                        <li>Workflow adaptation</li>
+                        <li>Tool integration</li>
+                        <li>Quality gates setup</li>
+                        <li>Documentation updates</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Pilot Implementation</h3>
+                    <p class="step-description">
+                        Start with a pilot project to test the implementation 
+                        and refine your approach.
+                    </p>
+                    <ul class="step-features">
+                        <li>Pilot project selection</li>
+                        <li>Standards application</li>
+                        <li>Results measurement</li>
+                        <li>Process refinement</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Full Deployment</h3>
+                    <p class="step-description">
+                        Roll out the standards across your organization 
+                        with continuous monitoring and improvement.
+                    </p>
+                    <ul class="step-features">
+                        <li>Organization-wide rollout</li>
+                        <li>Performance monitoring</li>
+                        <li>Continuous improvement</li>
+                        <li>Regular audits</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3 class="step-title">Certification & Recognition</h3>
+                    <p class="step-description">
+                        Achieve official HKAIFC certification and gain 
+                        industry recognition for your compliance.
+                    </p>
+                    <ul class="step-features">
+                        <li>Certification application</li>
+                        <li>Assessment process</li>
+                        <li>Certificate issuance</li>
+                        <li>Market recognition</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Alignment -->
+    <section class="international-alignment">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">International Standards Alignment</h2>
+                <p class="section-subtitle">
+                    HKAIFC standards are aligned with major international organizations 
+                    to ensure global compatibility and recognition
+                </p>
+            </div>
+            
+            <div class="alignment-grid">
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="org-name">ISO</h3>
+                    <p class="org-description">International Organization for Standardization</p>
+                    <div class="alignment-status">Aligned</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="org-name">IEEE</h3>
+                    <p class="org-description">Institute of Electrical and Electronics Engineers</p>
+                    <div class="alignment-status">Collaborative</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <h3 class="org-name">ITU</h3>
+                    <p class="org-description">International Telecommunication Union</p>
+                    <div class="alignment-status">Coordinated</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="org-name">W3C</h3>
+                    <p class="org-description">World Wide Web Consortium</p>
+                    <div class="alignment-status">Harmonized</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="org-name">NIST</h3>
+                    <p class="org-description">National Institute of Standards and Technology</p>
+                    <div class="alignment-status">Referenced</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="org-name">Partnership on AI</h3>
+                    <p class="org-description">AI Safety and Ethics Partnership</p>
+                    <div class="alignment-status">Engaged</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="org-name">Global Partnership on AI</h3>
+                    <p class="org-description">GPAI International Cooperation</p>
+                    <div class="alignment-status">Member</div>
+                </div>
+                
+                <div class="alignment-card">
+                    <div class="org-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="org-name">Academic Partners</h3>
+                    <p class="org-description">Leading Universities and Research Institutions</p>
+                    <div class="alignment-status">Collaborative</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards Development Process -->
+    <section style="padding: 6rem 2rem; background: var(--premium-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Standards Development Process</h2>
+                <p class="section-subtitle">
+                    Transparent and collaborative process for developing and maintaining industry standards
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="background: var(--glass-bg); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">1. Proposal & Research</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Industry needs assessment, stakeholder input collection, and initial research phase
+                    </p>
+                </div>
+                
+                <div style="background: var(--glass-bg); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--technical-orange), #F97316); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">2. Expert Committee Review</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Technical committee evaluation, expert analysis, and feasibility assessment
+                    </p>
+                </div>
+                
+                <div style="background: var(--glass-bg); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--quality-green), #059669); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">3. Draft Development</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Standard specification drafting, technical requirements definition, and documentation
+                    </p>
+                </div>
+                
+                <div style="background: var(--glass-bg); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--management-indigo), #2563EB); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">4. Public Consultation</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Industry consultation, public feedback collection, and stakeholder engagement
+                    </p>
+                </div>
+                
+                <div style="background: var(--glass-bg); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--standards-purple), #7C3AED); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">5. Final Approval</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Board review, final approval, and official standard publication
+                    </p>
+                </div>
+                
+                <div style="background: var(--glass-bg); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--authority-gold), #B8860B); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; margin: 0 auto 1.5rem;">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary);">6. Maintenance & Updates</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Regular review, updates based on industry evolution, and continuous improvement
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Implement HKAIFC Standards?</h2>
+            <p>
+                Join leading organizations in adopting comprehensive AI film industry standards. 
+                Get expert consultation, training, and certification to elevate your projects.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="#consultation" class="btn btn-white">
+                    <i class="fas fa-phone"></i>
+                    Schedule Consultation
+                </a>
+                <a href="#download" class="btn btn-outline-white">
+                    <i class="fas fa-download"></i>
+                    Download Standards Guide
+                </a>
+                <a href="#training" class="btn btn-outline-white">
+                    <i class="fas fa-graduation-cap"></i>
+                    View Training Programs
+                </a>
+            </div>
+            
+            <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ISO Aligned Framework</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-globe"></i>
+                    <span>Global Recognition</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-award"></i>
+                    <span>Industry Leading Standards</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-users"></i>
+                    <span>Expert Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--text-primary); color: var(--premium-white); padding: 4rem 2rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--authority-gold), #B8860B); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-certificate" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <h3 style="margin: 0;">HKAIFC</h3>
+                            <div style="font-size: 0.8rem; color: var(--authority-gold);">Standards Authority</div>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.6; margin-bottom: 1.5rem;">
+                        Leading the development of comprehensive AI film industry standards for global innovation and excellence.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">Standards</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#technical" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Technical Standards</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#content" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Content Standards</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#quality" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Quality Standards</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#management" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Management Standards</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#implementation" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Implementation Guide</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">Resources</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#documentation" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Standards Documentation</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#white-papers" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">White Papers</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#case-studies" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Case Studies</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#best-practices" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Best Practices</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#training" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Training Materials</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: 1.5rem;">Contact</h3>
+                    <div style="color: rgba(255, 255, 255, 0.7); line-height: 1.8;">
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: white;">Standards Development</strong><br>
+                            <i class="fas fa-envelope" style="width: 16px; margin-right: 0.5rem;"></i> standards@hkaifc.org
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <strong style="color: white;">Technical Support</strong><br>
+                            <i class="fas fa-envelope" style="width: 16px; margin-right: 0.5rem;"></i> tech@hkaifc.org
+                        </div>
+                        <div>
+                            <strong style="color: white;">Training & Consultation</strong><br>
+                            <i class="fas fa-envelope" style="width: 16px; margin-right: 0.5rem;"></i> training@hkaifc.org
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <p style="margin: 0; color: rgba(255, 255, 255, 0.7);">
+                        © 2025 Hong Kong AI Film Standards Committee. All rights reserved.
+                    </p>
+                </div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 20px; font-size: 0.8rem;">
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--gradient-start);"></span>
+                        <span>ISO 9001 Certified</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.1); border-radius: 20px; font-size: 0.8rem;">
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--gradient-start);"></span>
+                        <span>Globally Recognized</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.dataset.tab;
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll behavior
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else if (currentScroll < lastScroll) {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to cards
+        document.querySelectorAll('.category-card, .standard-card, .step-card, .alignment-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Language selector functionality
+        document.querySelector('.language-selector')?.addEventListener('click', function() {
+            // Add language switching functionality here
+            console.log('Language selector clicked');
+        });
+
+        // Mobile menu functionality
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks && !document.querySelector('.mobile-menu-btn')) {
+                    const mobileBtn = document.createElement('button');
+                    mobileBtn.className = 'mobile-menu-btn';
+                    mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileBtn.style.cssText = `
+                        background: none;
+                        border: none;
+                        color: var(--text-primary);
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    navLinks.style.display = 'none';
+                    document.querySelector('.nav-menu').appendChild(mobileBtn);
+                    
+                    mobileBtn.addEventListener('click', () => {
+                        const isVisible = navLinks.style.display !== 'none';
+                        navLinks.style.display = isVisible ? 'none' : 'flex';
+                        if (!isVisible) {
+                            navLinks.style.position = 'absolute';
+                            navLinks.style.top = '100%';
+                            navLinks.style.left = '0';
+                            navLinks.style.right = '0';
+                            navLinks.style.background = 'var(--glass-bg)';
+                            navLinks.style.backdropFilter = 'blur(20px)';
+                            navLinks.style.flexDirection = 'column';
+                            navLinks.style.padding = '1rem';
+                            navLinks.style.zIndex = '1000';
+                        }
+                    });
+                }
+            }
+        };
+
+        // Initialize mobile menu
+        createMobileMenu();
+        window.addEventListener('resize', createMobileMenu);
+
+        // Page load animations
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Search functionality for standards
+        function filterStandards(searchTerm) {
+            const standardCards = document.querySelectorAll('.standard-card');
+            standardCards.forEach(card => {
+                const title = card.querySelector('.standard-title').textContent.toLowerCase();
+                const description = card.querySelector('.standard-description').textContent.toLowerCase();
+                const id = card.querySelector('.standard-id').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm.toLowerCase()) || 
+                    description.includes(searchTerm.toLowerCase()) || 
+                    id.includes(searchTerm.toLowerCase())) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add search functionality if needed
+        const searchInput = document.getElementById('standards-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                filterStandards(e.target.value);
+            });
+        }
+    </script>
+</body>
+</html>
